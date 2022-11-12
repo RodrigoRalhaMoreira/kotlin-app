@@ -3,34 +3,58 @@ package com.example.futurouse
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.LinearLayout
-import android.widget.Toast
+import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.navigation.NavigationView
+import com.skydoves.balloon.ArrowPositionRules
+import com.skydoves.balloon.Balloon
+import com.skydoves.balloon.BalloonAnimation
+import com.skydoves.balloon.BalloonSizeSpec
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    object FragmentConstants {
-        const val HOME_FRAGMENT = "Home"
-        const val ABOUT_FRAGMENT = "About"
-    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        // more info question mark
+        val button: AppCompatImageButton = findViewById(R.id.button)
+
+        val balloon = Balloon.Builder(applicationContext)
+            .setWidthRatio(1.0f)
+            .setHeight(BalloonSizeSpec.WRAP)
+            .setText("This is a simple ballonn message")
+            .setTextColorResource(R.color.white)
+            .setTextSize(15f)
+            .setArrowPositionRules(ArrowPositionRules.ALIGN_ANCHOR)
+            .setArrowSize(10)
+            .setArrowPosition(0.5f)
+            .setPadding(12)
+            .setCornerRadius(8f)
+            .setBackgroundColorResource(R.color.purple_200)
+            .setBalloonAnimation(BalloonAnimation.ELASTIC)
+            .build()
+
+        button.setOnClickListener(View.OnClickListener() {
+            balloon.showAlignBottom(button)
+        })
+
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close)
         toggle.isDrawerIndicatorEnabled = true
         drawerLayout.addDrawerListener(toggle)
+        toggle.drawerArrowDrawable.color = R.color.black
         toggle.syncState()
 
         nav_menu.setNavigationItemSelectedListener(this)
 
-        setToolbarTitle(FragmentConstants.HOME_FRAGMENT)
+        supportActionBar?.title = ""
         changeFragment(Home())
     }
 
@@ -38,20 +62,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.closeDrawer(GravityCompat.START)
         when(item.itemId) {
             R.id.home -> {
-                setToolbarTitle(FragmentConstants.HOME_FRAGMENT)
                 changeFragment(Home())
             }
             R.id.about -> {
-                setToolbarTitle(FragmentConstants.ABOUT_FRAGMENT)
                 changeFragment(About())
+            }
+            R.id.guide -> {
+                changeFragment(Guide())
+            }
+            R.id.settings -> {
+                changeFragment(Settings())
             }
         }
         return true
     }
 
-    fun setToolbarTitle(title: String){
-        supportActionBar?.title = title
-    }
 
     fun changeFragment(frag: Fragment) {
         val fragment = supportFragmentManager.beginTransaction()

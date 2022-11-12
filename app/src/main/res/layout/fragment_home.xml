@@ -7,13 +7,92 @@
     tools:context=".Home">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Hello, Rodas"
+        android:textSize="36sp"
+        android:layout_marginEnd="128dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Status"
+        android:textSize="24sp"
+        android:layout_marginEnd="128dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <include
+        android:id="@+id/include2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-40dp"
+        layout="@layout/activity_horizontal_scroll_view_status"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="128dp"
+        android:text="Profiles"
+        android:textSize="24sp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2"
+        />
+
+    <include
+        android:id="@+id/include1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-40dp"
+        layout="@layout/activity_horizontal_scroll_view_profiles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="128dp"
+        android:text="Favourite Acessories"
+        android:textSize="24sp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="24dp"
+        android:paddingStart="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include1"
+        />
+
+
+    <include
+        android:id="@+id/include"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-40dp"
+        layout="@layout/activity_horizontal_scroll_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,11 +3,22 @@
 
     <item
         android:id="@+id/home"
-        android:title="Home" />
+        android:title="Home"
+        android:textColor="@color/black"
+        />
     <item
         android:id="@+id/about"
-        android:title="About" />
+        android:title="About us"
+        android:textColor="@color/black"
+        />
     <item
-        android:id="@+id/item"
-        android:title="Item" />
+        android:id="@+id/guide"
+        android:title="Basic Guide"
+        android:textColor="@color/black"
+        />
+    <item
+        android:id="@+id/settings"
+        android:title="Settings"
+        android:textColor="@color/black"
+        />
 </menu>

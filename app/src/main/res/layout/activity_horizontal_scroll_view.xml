@@ -10,7 +10,7 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,21 +18,21 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:layout_margin="20dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_marginTop="10dp"
                         android:src="@drawable/ic_launcher_background" />
 
@@ -48,8 +48,8 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:layout_margin="20dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -61,9 +61,8 @@
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"                        android:layout_marginTop="10dp"
                         android:src="@drawable/ic_launcher_foreground" />
 
                     <TextView
@@ -78,8 +77,8 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:layout_margin="20dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -91,9 +90,8 @@
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"                        android:layout_marginTop="10dp"
                         android:src="@drawable/ic_launcher_background" />
 
                     <TextView
@@ -108,8 +106,8 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:layout_margin="20dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
@@ -121,9 +119,8 @@
                     android:orientation="vertical">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"                        android:layout_marginTop="10dp"
                         android:src="@drawable/ic_launcher_background" />
 
                     <TextView

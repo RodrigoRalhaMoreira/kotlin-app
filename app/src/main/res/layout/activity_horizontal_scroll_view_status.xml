@@ -10,7 +10,7 @@
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="25dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,8 +18,8 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="20dp"
                 app:cardCornerRadius="60dp"
                 app:cardElevation="10dp">
@@ -32,7 +32,7 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="30dp"
                         android:layout_marginTop="10dp"
                         android:src="@drawable/moon" />
                 </LinearLayout>
@@ -41,18 +41,19 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:layout_width="70dp"
+                android:layout_width="54dp"
                 android:layout_height="30dp"
+                android:layout_marginVertical="80dp"
+                android:layout_marginLeft="-70dp"
                 android:layout_marginTop="50dp"
-                android:text="Night"
-                android:layout_marginVertical="100dp"
-                android:layout_marginLeft="-80dp"
-                android:textSize="20sp" />
+                android:text="Temp."
+                android:textAlignment="center"
+                android:textSize="15sp" />
 
 
             <androidx.cardview.widget.CardView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="20dp"
                 app:cardCornerRadius="60dp"
                 app:cardElevation="10dp">
@@ -65,24 +66,27 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="30dp"
                         android:layout_marginTop="10dp"
                         android:src="@drawable/moon" />
                 </LinearLayout>
 
+
             </androidx.cardview.widget.CardView>
+
             <TextView
-                android:layout_width="70dp"
+                android:layout_width="54dp"
                 android:layout_height="30dp"
+                android:layout_marginVertical="80dp"
+                android:layout_marginLeft="-70dp"
                 android:layout_marginTop="50dp"
-                android:text="Night"
-                android:layout_marginVertical="100dp"
-                android:layout_marginLeft="-80dp"
-                android:textSize="20sp" />
+                android:text="2 lights"
+                android:textAlignment="center"
+                android:textSize="15sp" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_margin="20dp"
                 app:cardCornerRadius="60dp"
                 app:cardElevation="10dp">
@@ -95,20 +99,22 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
+                        android:layout_height="30dp"
                         android:layout_marginTop="10dp"
                         android:src="@drawable/moon" />
                 </LinearLayout>
 
+
             </androidx.cardview.widget.CardView>
+
             <TextView
-                android:layout_width="70dp"
+                android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                android:layout_marginVertical="80dp"
+                android:layout_marginLeft="-70dp"
                 android:layout_marginTop="50dp"
-                android:text="Add"
-                android:layout_marginVertical="100dp"
-                android:layout_marginLeft="-80dp"
-                android:textSize="20sp" />
+                android:text="Irrig. on"
+                android:textSize="15sp" />
         </LinearLayout>
 
     </HorizontalScrollView>

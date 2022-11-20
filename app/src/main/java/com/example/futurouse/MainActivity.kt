@@ -64,6 +64,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.home -> {
                 changeFragment(Home())
             }
+            R.id.rooms -> {
+                changeFragment(Rooms())
+            }
             R.id.about -> {
                 changeFragment(About())
             }

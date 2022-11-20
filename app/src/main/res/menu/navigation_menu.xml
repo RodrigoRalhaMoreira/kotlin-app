@@ -7,6 +7,11 @@
         android:textColor="@color/black"
         />
     <item
+        android:id="@+id/rooms"
+        android:title="Rooms"
+        android:textColor="@color/black"
+        />
+    <item
         android:id="@+id/about"
         android:title="About us"
         android:textColor="@color/black"

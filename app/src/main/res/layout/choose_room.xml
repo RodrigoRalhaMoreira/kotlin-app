@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:layout_marginTop="-15dp"
+            android:text="ROOMS"
+            android:textColor="#58595A"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/container"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container">
+
+        <FrameLayout
+            android:layout_width="380dp"
+            android:layout_height="95dp"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#E6FDAC"
+                app:cornerRadius="15dp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-5dp"
+                android:fontFamily="sans-serif"
+                android:text="Kitchen"
+                android:textColor="#58595A"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:translationZ="90dp"></TextView>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif"
+                android:text="3 devices"
+                android:textColor="#58595A"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:translationZ="90dp"></TextView>
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginEnd="0dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="90dp"
+                android:maxHeight="90dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/kitchen_symbol_gray"
+                android:translationZ="90dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="380dp"
+            android:layout_height="95dp"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#FFD4D5"
+                app:cornerRadius="15dp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-5dp"
+                android:fontFamily="sans-serif"
+                android:text="Bedroom"
+                android:textColor="#58595A"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:translationZ="90dp"></TextView>
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif"
+                android:text="5 devices"
+                android:textColor="#58595A"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:translationZ="90dp"></TextView>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginEnd="14dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="60dp"
+                android:maxHeight="60dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/bedroom_symbol_gray"
+                android:translationZ="90dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="380dp"
+            android:layout_height="95dp"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#FFCEA9"
+                app:cornerRadius="15dp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-5dp"
+                android:fontFamily="sans-serif"
+                android:text="Office"
+                android:textColor="#58595A"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:translationZ="90dp"></TextView>
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif"
+                android:text="2 devices"
+                android:textColor="#58595A"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:translationZ="90dp"></TextView>
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginEnd="-1dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="100dp"
+                android:maxHeight="100dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/office_symbol_gray"
+                android:translationZ="90dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="380dp"
+            android:layout_height="95dp"
+            android:layout_marginBottom="10dp">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="#7FFFB8"
+                app:cornerRadius="15dp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-5dp"
+                android:fontFamily="sans-serif"
+                android:text="Garden"
+                android:textColor="#58595A"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:translationZ="90dp"></TextView>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif"
+                android:text="1 devices"
+                android:textColor="#58595A"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:translationZ="90dp"></TextView>
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginEnd="20dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="55dp"
+                android:maxHeight="55dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/garden_symbol_gray"
+                android:translationZ="90dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

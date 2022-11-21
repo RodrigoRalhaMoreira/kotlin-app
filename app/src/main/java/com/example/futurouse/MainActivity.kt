@@ -113,14 +113,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         var seekbar: CircularSeekBar? = findViewById(R.id.seekbar)
         seekbar?.progress = currTemp
+        seekbar?.circleProgressColor = Color.rgb(currTemp.toInt()*(255/35),0,255-currTemp.toInt()*(255/35))
         seekbar?.setOnSeekBarChangeListener(object : CircularSeekBar.OnCircularSeekBarChangeListener{
             override fun onProgressChanged(
                 circularSeekBar: CircularSeekBar?,
                 progress: Float,
                 fromUser: Boolean
             ) {
+                seekbar.circleProgressColor = Color.rgb(progress.toInt()*(255/35),0,255-progress.toInt()*(255/35))
                 newTemp = progress
-
                 newTemperature.text = "${newTemp.toInt()} ºC"
             }
 

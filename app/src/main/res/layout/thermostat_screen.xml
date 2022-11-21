@@ -6,19 +6,36 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="270dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:layout_gravity="center|end"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:adjustViewBounds="true"
+            android:maxWidth="45dp"
+            android:maxHeight="45dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/back_arrow_gray"
+            ></ImageView>
         <TextView
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:textColor="#58595A"
-            android:gravity="center"
-            android:textSize="40dp"
-            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:textSize="30dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Room"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageView"
             app:layout_constraintTop_toTopOf="parent"
         ></TextView>
         <TextView
@@ -86,15 +103,15 @@
             android:textColor="#58595A"
             ></TextView>
         <TextView
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="240dp"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:translationZ="100dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="Adjust"
             android:gravity="center"
-            android:textSize="50dp"
+            android:textSize="40dp"
             android:textColor="#58595A"
         ></TextView>
 
@@ -128,17 +145,21 @@
             app:cs_progress="10"
             app:cs_start_angle="-200"
             app:cs_use_custom_radii="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"></me.tankery.lib.circularseekbar.CircularSeekBar>
+            app:layout_constraintVertical_bias="0.0"></me.tankery.lib.circularseekbar.CircularSeekBar>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <ImageView
+        android:clickable="true"
+        android:focusable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
         android:layout_gravity="center|end"
-        android:layout_marginBottom="-10dp"
+        android:layout_marginBottom="5dp"
         android:adjustViewBounds="true"
         android:maxWidth="150dp"
         android:maxHeight="150dp"
@@ -147,4 +168,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:src="@drawable/fan_symbol"
         ></ImageView>
+    <TextView
+        android:text="Mode"
+        android:textSize="20dp"
+        android:layout_marginBottom="-23dp"
+        android:layout_marginLeft="49dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

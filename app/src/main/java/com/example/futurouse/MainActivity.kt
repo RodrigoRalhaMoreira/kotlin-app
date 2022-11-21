@@ -1,12 +1,14 @@
 package com.example.futurouse
 
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.MenuItem
 import android.view.View
+import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.view.animation.LinearInterpolator
+import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -22,12 +24,17 @@ import com.skydoves.balloon.BalloonSizeSpec
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import me.tankery.lib.circularseekbar.CircularSeekBar
-import java.lang.Math.abs
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     var currTemp = 10f
     var newTemp = 10f
+
+    val rotateValue = 2800L
+    val rotateTotalModes = 3L
+    var rotateMode = 0L
+    var rotateStep = 920
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -102,7 +109,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
         val fanImg = findViewById<ImageView>(R.id.imageView2);
+
+
         val rotate = AnimationUtils.loadAnimation(this, R.anim.rotate)
+        rotate.duration = rotateValue
+        rotate.setInterpolator(LinearInterpolator())
         fanImg.animation = rotate
 
         val currentTemperature = findViewById<TextView>(R.id.textView2)
@@ -139,8 +150,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
         })
-    }
 
+        fanImg.setOnClickListener {
+            rotate.duration = rotateValue - rotateStep*(rotateMode % rotateTotalModes)
+            rotateMode++
+            fanImg.animation = rotate
+        }
+    }
     fun startCounter(textView : TextView,imageView: ImageView){
         val timeStart = 5000L
         val timeStep = 1000L

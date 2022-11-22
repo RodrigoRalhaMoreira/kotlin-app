@@ -18,6 +18,7 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
+                app:cardBackgroundColor="#FFFFFF"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
@@ -52,6 +53,7 @@
 
 
             <androidx.cardview.widget.CardView
+                app:cardBackgroundColor="#FFFFFF"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"
@@ -85,6 +87,7 @@
                 android:textSize="15sp" />
 
             <androidx.cardview.widget.CardView
+                app:cardBackgroundColor="#FFFFFF"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"

@@ -7,115 +7,6 @@
     android:orientation="vertical"
     tools:context=".Horizontal_ScrollView">
 
-    <!--
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="120dp"
-                android:layout_height="80dp"
-                android:layout_margin="20dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="15dp"
-                        android:src="@drawable/moon" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="50dp"
-                android:text="Night"
-                android:layout_marginVertical="100dp"
-                android:layout_marginLeft="-105dp"
-                android:layout_marginRight="20dp"
-                android:textSize="20sp" />
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="120dp"
-                android:layout_height="80dp"
-                android:layout_margin="20dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                >
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="15dp"
-                        android:src="@drawable/sun" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="50dp"
-                android:text="Add"
-                android:layout_marginVertical="100dp"
-                android:layout_marginLeft="-105dp"
-                android:layout_marginRight="20dp"
-                android:textSize="20sp" />
-            <androidx.cardview.widget.CardView
-                android:layout_width="120dp"
-                android:layout_height="80dp"
-                android:layout_margin="20dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="15dp"
-                        android:src="@drawable/plus" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="50dp"
-                android:text="Add"
-                android:layout_marginVertical="100dp"
-                android:layout_marginLeft="-105dp"
-                android:layout_marginRight="20dp"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-
-    </HorizontalScrollView>
-    -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -133,13 +24,16 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#FFFFFF">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_horizontal"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="#DCDCD0"
+                    >
 
                     <TextView
                         android:layout_width="match_parent"
@@ -147,7 +41,8 @@
                         android:text="Wake up"
                         android:textAlignment="center"
                         android:layout_marginTop="18sp"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -156,11 +51,14 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="180dp"
                 android:layout_height="60dp"
-                android:layout_margin="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="10dp">
+                app:cardElevation="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginRight="20dp"
+                >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -171,9 +69,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="18sp"
                         android:text="Party"
                         android:textAlignment="center"
-                        android:layout_marginTop="18sp"
                         android:textSize="20sp" />
                 </LinearLayout>
 
@@ -183,11 +81,12 @@
 
 
     </HorizontalScrollView>
+
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-30sp"
-        >
+        tools:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -200,6 +99,7 @@
                 android:layout_margin="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
@@ -212,9 +112,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="18sp"
                         android:text="Good night"
                         android:textAlignment="center"
-                        android:layout_marginTop="18sp"
                         android:textSize="20sp" />
                 </LinearLayout>
 
@@ -224,9 +124,10 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="180dp"
                 android:layout_height="60dp"
-                android:layout_margin="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="-10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
@@ -239,9 +140,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginTop="18sp"
                         android:text="Relax"
                         android:textAlignment="center"
-                        android:layout_marginTop="18sp"
                         android:textSize="20sp" />
                 </LinearLayout>
 

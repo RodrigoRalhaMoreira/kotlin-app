@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     var rotateMode = 0L
     var rotateStep = 920
 
+    var blindsPerc = arrayOf("0%", "25%", "50%", "75%", "100%")
+    var currentBlindsIndex = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -101,6 +104,40 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun changeFragment(frag: Fragment) {
         val fragment = supportFragmentManager.beginTransaction()
         fragment.replace(R.id.fragment_container, frag).commit()
+    }
+
+    fun blinds(view: View) {
+        setContentView(R.layout.blinds_screen)
+    }
+
+    fun blindsUp(view: View) {
+        val blindPercentage = findViewById<TextView>(R.id.blind_percentage)
+        if (currentBlindsIndex != 4) {
+            currentBlindsIndex += 1
+            blindPercentage.text = blindsPerc[currentBlindsIndex]
+            changeBlindsImage()
+        }
+    }
+
+    fun blindsDown(view: View) {
+        val blindPercentage = findViewById<TextView>(R.id.blind_percentage)
+        if (currentBlindsIndex != 0) {
+            currentBlindsIndex -= 1
+            blindPercentage.text = blindsPerc[currentBlindsIndex]
+            changeBlindsImage()
+        }
+    }
+
+    fun changeBlindsImage() {
+        val blindImage = findViewById<ImageView>(R.id.imageView3)
+
+        when(currentBlindsIndex) {
+            0 -> blindImage.setImageResource(R.drawable.blinds_0)
+            1 -> blindImage.setImageResource(R.drawable.blinds_30)
+            2 -> blindImage.setImageResource(R.drawable.blinds_50)
+            3 -> blindImage.setImageResource(R.drawable.blinds_70)
+            4 -> blindImage.setImageResource(R.drawable.blinds_100)
+        }
     }
 
     fun thermostat(view: View){

@@ -1,5 +1,6 @@
 package com.example.futurouse
 
+import android.animation.ObjectAnimator
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     var blindsPerc = arrayOf("0%", "25%", "50%", "75%", "100%")
     var currentBlindsIndex = 0
     var lightPercentage = 20
+    var lightColorMenuOpen = false
     var lightsOn = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -154,7 +156,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val rotate = AnimationUtils.loadAnimation(this, R.anim.rotate)
         rotate.duration = rotateValue
-        rotate.setInterpolator(LinearInterpolator())
+        rotate.interpolator = LinearInterpolator()
         fanImg.animation = rotate
 
         val currentTemperature = findViewById<TextView>(R.id.textView2)

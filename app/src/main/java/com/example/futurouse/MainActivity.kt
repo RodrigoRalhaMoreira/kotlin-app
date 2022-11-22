@@ -10,10 +10,12 @@ import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
+import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageButton
+import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
@@ -35,6 +37,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     val rotateTotalModes = 3L
     var rotateMode = 0L
     var rotateStep = 920
+
+    var lightPercentage = 20
+    var lightsOn = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -171,5 +176,47 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 imageView.alpha = 0F
             }
         }.start()
+    }
+
+    fun lightsChange(view:View){
+        setContentView(R.layout.lights_change_screen)
+        val seekbar = findViewById<SeekBar>(R.id.seekbar)
+        val lightText = findViewById<TextView>(R.id.textView)
+        val onOffBtn = findViewById<ImageView>(R.id.imageView1)
+        val darkening = findViewById<CardView>(R.id.cardView)
+
+        if(lightsOn){
+            onOffBtn.setImageResource(R.drawable.lights_on_symbol)
+            darkening.alpha = 0.0f
+        }else{
+            onOffBtn.setImageResource(R.drawable.ligthts_off_symbol)
+            darkening.alpha = 0.25f
+        }
+
+        lightText.text = "$lightPercentage%"
+        seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
+                lightPercentage = p1
+                lightText.text = "$p1%"
+            }
+
+            override fun onStartTrackingTouch(p0: SeekBar?) {
+            }
+
+            override fun onStopTrackingTouch(p0: SeekBar?) {
+            }
+
+        })
+
+        onOffBtn.setOnClickListener {
+            lightsOn = !lightsOn
+            if(lightsOn){
+                onOffBtn.setImageResource(R.drawable.lights_on_symbol)
+                darkening.alpha = 0.0f
+            }else{
+                onOffBtn.setImageResource(R.drawable.ligthts_off_symbol)
+                darkening.alpha = 0.25f
+            }
+        }
     }
 }

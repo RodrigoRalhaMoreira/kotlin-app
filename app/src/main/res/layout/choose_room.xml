@@ -47,7 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="#E6FDAC"
-                app:cornerRadius="15dp" />
+                app:cornerRadius="15dp"
+                android:onClick="goToKitchen"/>
 
             <TextView
                 android:id="@+id/textView2"

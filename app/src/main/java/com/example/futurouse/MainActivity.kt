@@ -3,6 +3,7 @@ package com.example.futurouse
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.animation.Animation
@@ -148,9 +149,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setContentView(R.layout.thermostat_screen)
 
-
         val fanImg = findViewById<ImageView>(R.id.imageView2);
-
 
         val rotate = AnimationUtils.loadAnimation(this, R.anim.rotate)
         rotate.duration = rotateValue
@@ -256,7 +255,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    fun kitchen(view: View) {
-        setContentView(R.layout.kitchen)
+    fun goToKitchen(view: View) {
+        setContentView(R.layout.kitchen_screen)
     }
+
+    fun oven(view: View) {
+        setContentView(R.layout.oven_screen)
+    }
+
 }

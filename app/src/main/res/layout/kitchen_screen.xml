@@ -26,7 +26,8 @@
                 android:focusable="true"
                 android:maxWidth="45dp"
                 android:maxHeight="45dp"
-                android:src="@drawable/back_arrow_gray"></ImageView>
+                android:src="@drawable/back_arrow_gray"
+                android:onClick="goBack"></ImageView>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -123,7 +124,8 @@
                     android:layout_marginLeft="20dp"
                     app:cardBackgroundColor="#FFFFFF"
                     app:cardCornerRadius="20dp"
-                    app:cardElevation="10dp" >
+                    app:cardElevation="10dp"
+                    android:onClick="oven">
 
                     <LinearLayout
                         android:layout_width="match_parent"

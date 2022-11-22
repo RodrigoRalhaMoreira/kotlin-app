@@ -255,4 +255,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         }
     }
+
+    fun kitchen(view: View) {
+        setContentView(R.layout.kitchen)
+    }
 }

@@ -151,6 +151,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         val fanImg = findViewById<ImageView>(R.id.imageView2);
 
+
         val rotate = AnimationUtils.loadAnimation(this, R.anim.rotate)
         rotate.duration = rotateValue
         rotate.setInterpolator(LinearInterpolator())
@@ -215,24 +216,115 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     fun lightsChange(view:View){
         setContentView(R.layout.lights_change_screen)
-        val seekbar = findViewById<SeekBar>(R.id.seekbar)
+        var seekbar = findViewById<SeekBar>(R.id.seekbar)
         val lightText = findViewById<TextView>(R.id.textView)
         val onOffBtn = findViewById<ImageView>(R.id.imageView1)
         val darkening = findViewById<CardView>(R.id.cardView)
+        val yellowBtn = findViewById<CardView>(R.id.cardView2)
+        val redBtn = findViewById<CardView>(R.id.cardView1)
+        val blueBtn = findViewById<CardView>(R.id.cardView3)
 
         if(lightsOn){
             onOffBtn.setImageResource(R.drawable.lights_on_symbol)
             darkening.alpha = 0.0f
         }else{
-            onOffBtn.setImageResource(R.drawable.ligthts_off_symbol)
+            onOffBtn.setImageResource(R.drawable.lights_off_symbol)
             darkening.alpha = 0.25f
         }
 
+        seekbar.alpha = 0.4f + (lightPercentage/100f)
+
         lightText.text = "$lightPercentage%"
+
+        yellowBtn.setOnClickListener {
+            if(lightColorMenuOpen){
+                var progressMem = lightPercentage
+                seekbar.progressDrawable = getDrawable(R.drawable.yellow_track)
+                seekbar.progress = 0
+                seekbar.progress = progressMem
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 69.8f)
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 69.8f)
+                objectAnimator.duration = 1000
+                objectAnimator1.duration = 1000
+                objectAnimator.start()
+                objectAnimator1.start()
+                lightColorMenuOpen = false
+                yellowBtn.translationZ = 11F
+                redBtn.translationZ = 9F
+                blueBtn.translationZ = 9F
+
+            }else{
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 240f)
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 410f)
+                objectAnimator.duration = 1000
+                objectAnimator1.duration = 1000
+                objectAnimator.start()
+                objectAnimator1.start()
+                lightColorMenuOpen = true
+            }
+        }
+
+        redBtn.setOnClickListener {
+            if(lightColorMenuOpen){
+                var progressMem = lightPercentage
+                seekbar.progressDrawable = getDrawable(R.drawable.red_track)
+                seekbar.progress = 0
+                seekbar.progress = progressMem
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 69.8f)
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 69.8f)
+                objectAnimator.duration = 1000
+                objectAnimator1.duration = 1000
+                objectAnimator.start()
+                objectAnimator1.start()
+                lightColorMenuOpen = false
+                yellowBtn.translationZ = 9F
+                redBtn.translationZ = 11F
+                blueBtn.translationZ = 9F
+
+            }else{
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 240f)
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 410f)
+                objectAnimator.duration = 1000
+                objectAnimator1.duration = 1000
+                objectAnimator.start()
+                objectAnimator1.start()
+                lightColorMenuOpen = true
+            }
+        }
+
+        blueBtn.setOnClickListener {
+            if(lightColorMenuOpen){
+                var progressMem = lightPercentage
+                seekbar.progressDrawable = getDrawable(R.drawable.blue_track)
+                seekbar.progress = 0
+                seekbar.progress = progressMem
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 69.8f)
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 69.8f)
+                objectAnimator.duration = 1000
+                objectAnimator1.duration = 1000
+                objectAnimator.start()
+                objectAnimator1.start()
+                lightColorMenuOpen = false
+                yellowBtn.translationZ = 9F
+                redBtn.translationZ = 9F
+                blueBtn.translationZ = 11F
+
+            }else{
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 240f)
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 410f)
+                objectAnimator.duration = 1000
+                objectAnimator1.duration = 1000
+                objectAnimator.start()
+                objectAnimator1.start()
+                lightColorMenuOpen = true
+            }
+        }
+
         seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                lightPercentage = p1
+                if(p2)lightPercentage = p1
                 lightText.text = "$p1%"
+                seekbar.alpha = 0.4f + (p1/100f)
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
@@ -240,27 +332,27 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             override fun onStopTrackingTouch(p0: SeekBar?) {
             }
-
-        })
+            })
 
         onOffBtn.setOnClickListener {
             lightsOn = !lightsOn
             if(lightsOn){
                 onOffBtn.setImageResource(R.drawable.lights_on_symbol)
                 darkening.alpha = 0.0f
+                seekbar.isEnabled = true
+                seekbar.progress = lightPercentage
+                blueBtn.isClickable = true
+                yellowBtn.isClickable = true
+                redBtn.isClickable = true
             }else{
-                onOffBtn.setImageResource(R.drawable.ligthts_off_symbol)
+                onOffBtn.setImageResource(R.drawable.lights_off_symbol)
                 darkening.alpha = 0.25f
+                seekbar.progress = 0
+                seekbar.isEnabled = false
+                blueBtn.isClickable = false
+                yellowBtn.isClickable = false
+                redBtn.isClickable = false
             }
         }
     }
-
-    fun goToKitchen(view: View) {
-        setContentView(R.layout.kitchen_screen)
-    }
-
-    fun oven(view: View) {
-        setContentView(R.layout.oven_screen)
-    }
-
 }

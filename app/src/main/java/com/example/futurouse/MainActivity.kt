@@ -20,6 +20,7 @@ import androidx.appcompat.widget.AppCompatImageButton
 import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.navigation.NavigationView
 import com.skydoves.balloon.ArrowPositionRules
 import com.skydoves.balloon.Balloon
@@ -35,10 +36,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     var currTemp = 10f
     var newTemp = 10f
 
-    val rotateValue = 2800L
-    val rotateTotalModes = 3L
-    var rotateMode = 0L
-    var rotateStep = 920
+    val rotateBaseValue = 1F
+    val rotateTotalModes = 3f
+    var rotateMode = 0f
+    var rotateStep = 1.5f
 
     var blindsPerc = arrayOf("0%", "25%", "50%", "75%", "100%")
     var currentBlindsIndex = 0
@@ -151,13 +152,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         setContentView(R.layout.thermostat_screen)
 
-        val fanImg = findViewById<ImageView>(R.id.imageView2);
+        val fanImg = findViewById<LottieAnimationView>(R.id.imageView2);
 
-
-        val rotate = AnimationUtils.loadAnimation(this, R.anim.rotate)
-        rotate.duration = rotateValue
-        rotate.interpolator = LinearInterpolator()
-        fanImg.animation = rotate
+        fanImg.speed = rotateBaseValue + rotateStep*(rotateMode % rotateTotalModes)
+        //val rotate = AnimationUtils.loadAnimation(this, R.anim.rotate)
+        //rotate.duration = rotateValue
+        //rotate.interpolator = LinearInterpolator()
+        //fanImg.animation = rotate
 
         val currentTemperature = findViewById<TextView>(R.id.textView2)
         val newTemperature = findViewById<TextView>(R.id.textView3)
@@ -194,10 +195,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
         })
 
-        fanImg.setOnClickListener {
+        /*fanImg.setOnClickListener {
             rotate.duration = rotateValue - rotateStep*(rotateMode % rotateTotalModes)
             rotateMode++
             fanImg.animation = rotate
+        }*/
+        fanImg.setOnClickListener {
+            rotateMode++
+            fanImg.speed = rotateBaseValue + rotateStep*(rotateMode % rotateTotalModes)
         }
     }
     fun startCounter(textView : TextView,imageView: ImageView){

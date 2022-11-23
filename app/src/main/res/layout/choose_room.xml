@@ -216,7 +216,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="#7FFFB8"
-                android:onClick="lightsChange"
+                android:onClick="thermostat"
                 app:cornerRadius="15dp" />
 
             <TextView

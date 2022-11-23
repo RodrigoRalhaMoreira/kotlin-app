@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OvenTemperature">
+
+    <me.tankery.lib.circularseekbar.CircularSeekBar
+        android:id="@+id/tempSeekBar"
+        android:layout_width="217dp"
+
+        android:layout_height="217dp"
+        app:cs_circle_color="#e2e2e2"
+        app:cs_circle_fill="@color/white"
+        app:cs_circle_progress_color="#FF0000"
+        app:cs_circle_stroke_width="20dp"
+        app:cs_circle_style="round"
+        app:cs_circle_x_radius="0dp"
+        app:cs_circle_y_radius="0dp"
+        app:cs_disable_pointer="false"
+        app:cs_disable_progress_glow="true"
+        app:cs_hide_progress_when_empty="true"
+        app:cs_lock_enabled="true"
+        app:cs_maintain_equal_circle="false"
+        app:cs_max="240"
+        app:cs_move_outside_circle="false"
+        app:cs_negative_enabled="false"
+        app:cs_pointer_alpha_ontouch="1"
+        app:cs_pointer_angle="1"
+        app:cs_pointer_color="#ff6969"
+        app:cs_pointer_stroke_width="23dp"
+        app:cs_progress="100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </me.tankery.lib.circularseekbar.CircularSeekBar>
+
+    <TextView
+        android:id="@+id/temperature"
+        android:layout_width="89dp"
+        android:layout_height="55dp"
+        android:text="100º"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/tempSeekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tempSeekBar"
+        app:layout_constraintVertical_bias="0.503" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

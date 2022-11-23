@@ -1,10 +1,14 @@
 package com.example.futurouse
 
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import kotlinx.android.synthetic.main.fragment_oven_mode.*
 import kotlinx.android.synthetic.main.oven_activity.*
 
 class OvenActivity : AppCompatActivity()  {
@@ -56,9 +60,7 @@ class OvenActivity : AppCompatActivity()  {
             }
         }
 
-
-
-
     }
+
 
 }

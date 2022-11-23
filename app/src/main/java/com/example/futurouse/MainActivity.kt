@@ -84,6 +84,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar?.title = ""
         changeFragment(Home())
 
+
+
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

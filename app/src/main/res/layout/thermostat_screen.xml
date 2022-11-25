@@ -10,34 +10,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView"
-            android:layout_gravity="center|end"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp"
-            android:adjustViewBounds="true"
-            android:maxWidth="45dp"
-            android:maxHeight="45dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/back_arrow_gray"
-            ></ImageView>
-        <TextView
-            android:layout_marginTop="15dp"
-            android:textColor="#58595A"
-            android:layout_marginLeft="10dp"
-            android:textSize="30dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Room"
-            app:layout_constraintStart_toEndOf="@id/imageView"
-            app:layout_constraintTop_toTopOf="parent"
-        ></TextView>
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:maxWidth="45dp"
+                android:maxHeight="45dp"
+                android:src="@drawable/back_arrow_gray">
+
+            </ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="Kitchen"
+                android:textColor="#58595A"
+                android:textSize="30dp"
+                app:layout_constraintStart_toEndOf="@id/backButton"
+                app:layout_constraintTop_toTopOf="parent"></TextView>
+        </LinearLayout>
         <TextView
             android:id="@+id/textView1"
             android:layout_marginTop="110dp"
@@ -113,10 +116,9 @@
             app:layout_constraintTop_toTopOf="parent"
             android:text="Adjust"
             android:gravity="center"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:textColor="#58595A"
         ></TextView>
-
 
         <me.tankery.lib.circularseekbar.CircularSeekBar
             android:id="@+id/seekbar"
@@ -167,7 +169,6 @@
         android:id="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/fan_symbol"
         ></com.airbnb.lottie.LottieAnimationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

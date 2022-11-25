@@ -11,6 +11,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
         // more info question mark
-        val button: AppCompatImageButton = findViewById(R.id.button)
+        val button = findViewById<ImageButton>(R.id.button)
 
         val balloon = Balloon.Builder(applicationContext)
             .setWidthRatio(1.0f)
@@ -77,7 +78,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close)
         toggle.isDrawerIndicatorEnabled = true
         drawerLayout.addDrawerListener(toggle)
-        toggle.drawerArrowDrawable.color = R.color.black
+        toggle.drawerArrowDrawable.color = Color.BLACK
         toggle.syncState()
 
         nav_menu.setNavigationItemSelectedListener(this)
@@ -188,7 +189,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 if(dif.toInt() != 0){
                     if(dif > 0.0f) thermometer.setImageResource(R.drawable.thermometer_temperature_up)
                     else thermometer.setImageResource(R.drawable.thermometer_temperature_down)
-                    thermometer.alpha = 255F
+                    thermometer.alpha = 1F
                     startCounter(currentTemperature,thermometer)
                 }
             }

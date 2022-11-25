@@ -1,14 +1,11 @@
-package com.example.futurouse
+package com.example.futurouse.oven
 
-import android.content.Intent
-import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import kotlinx.android.synthetic.main.fragment_oven_mode.*
+import com.example.futurouse.R
 import kotlinx.android.synthetic.main.oven_activity.*
 
 class OvenActivity : AppCompatActivity()  {
@@ -37,6 +34,7 @@ class OvenActivity : AppCompatActivity()  {
                 replace(R.id.ovenFragContainer, modeFragment)
                 commit()
             }
+            setActiveTab(modeButton)
         }
 
         tempButton.setOnClickListener {
@@ -44,6 +42,7 @@ class OvenActivity : AppCompatActivity()  {
                 replace(R.id.ovenFragContainer, tempFragment)
                 commit()
             }
+            setActiveTab(modeButton)
         }
 
         timerButton.setOnClickListener {
@@ -51,6 +50,7 @@ class OvenActivity : AppCompatActivity()  {
                 replace(R.id.ovenFragContainer, timerFragment)
                 commit()
             }
+            setActiveTab(modeButton)
         }
 
         programsButton.setOnClickListener {
@@ -58,8 +58,13 @@ class OvenActivity : AppCompatActivity()  {
                 replace(R.id.ovenFragContainer, programsFragment)
                 commit()
             }
+            setActiveTab(modeButton)
         }
 
+    }
+
+    private fun setActiveTab(button: CardView) {
+        //button.setBackgroundColor(Color.rgb())
     }
 
 

@@ -7,12 +7,6 @@ import android.widget.Button
 import android.widget.ImageView
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.futurouse.databinding.ActivityKitchenBinding
 import kotlinx.android.synthetic.main.activity_kitchen.*
 
 class KitchenActivity : AppCompatActivity() {
@@ -26,6 +20,14 @@ class KitchenActivity : AppCompatActivity() {
         ovenButton.setOnClickListener {
             Intent(this, OvenActivity::class.java).also {
                 startActivity(it)
+            }
+        }
+
+        lightButton.setOnClickListener{
+            Intent(this, ChangeLigthsActivity::class.java).also {
+                it.putExtra("roomName","Kitchen")
+                startActivity(it)
+
             }
         }
 

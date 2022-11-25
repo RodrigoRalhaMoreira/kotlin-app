@@ -1,16 +1,14 @@
 package com.example.futurouse
 
 import android.animation.ObjectAnimator
+import android.app.TimePickerDialog
+import android.app.TimePickerDialog.OnTimeSetListener
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.view.animation.LinearInterpolator
-import android.view.animation.RotateAnimation
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
@@ -29,6 +27,7 @@ import com.skydoves.balloon.BalloonSizeSpec
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import me.tankery.lib.circularseekbar.CircularSeekBar
+import java.util.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -43,9 +42,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     var blindsPerc = arrayOf("0%", "25%", "50%", "75%", "100%")
     var currentBlindsIndex = 0
+
     var lightPercentage = 20
     var lightColorMenuOpen = false
     var lightsOn = true
+
+    var hour = 0
+    var minute = 0
+    lateinit var button : CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +81,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close)
         toggle.isDrawerIndicatorEnabled = true
         drawerLayout.addDrawerListener(toggle)
-        toggle.drawerArrowDrawable.color = R.color.black
+        toggle.drawerArrowDrawable.color = Color.BLACK
         toggle.syncState()
 
         nav_menu.setNavigationItemSelectedListener(this)
@@ -188,7 +192,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 if(dif.toInt() != 0){
                     if(dif > 0.0f) thermometer.setImageResource(R.drawable.thermometer_temperature_up)
                     else thermometer.setImageResource(R.drawable.thermometer_temperature_down)
-                    thermometer.alpha = 255F
+                    thermometer.alpha = 1f
                     startCounter(currentTemperature,thermometer)
                 }
             }
@@ -224,145 +228,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }.start()
     }
 
-    fun lightsChange(view:View){
-        setContentView(R.layout.lights_change_screen)
-        var seekbar = findViewById<SeekBar>(R.id.seekbar)
-        val lightText = findViewById<TextView>(R.id.textView)
-        val onOffBtn = findViewById<ImageView>(R.id.imageView1)
-        val darkening = findViewById<CardView>(R.id.cardView)
-        val yellowBtn = findViewById<CardView>(R.id.cardView2)
-        val redBtn = findViewById<CardView>(R.id.cardView1)
-        val blueBtn = findViewById<CardView>(R.id.cardView3)
+    fun garden(view: View){
+        setContentView(R.layout.irrigation)
+        button = findViewById<CardView>(R.id.button)
+    }
 
-        if(lightsOn){
-            onOffBtn.setImageResource(R.drawable.lights_on_symbol)
-            darkening.alpha = 0.0f
-        }else{
-            onOffBtn.setImageResource(R.drawable.lights_off_symbol)
-            darkening.alpha = 0.25f
-        }
-
-        seekbar.alpha = 0.4f + (lightPercentage/100f)
-
-        lightText.text = "$lightPercentage%"
-
-        yellowBtn.setOnClickListener {
-            if(lightColorMenuOpen){
-                var progressMem = lightPercentage
-                seekbar.progressDrawable = getDrawable(R.drawable.yellow_track)
-                seekbar.progress = 0
-                seekbar.progress = progressMem
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 69.8f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 69.8f)
-                objectAnimator.duration = 1000
-                objectAnimator1.duration = 1000
-                objectAnimator.start()
-                objectAnimator1.start()
-                lightColorMenuOpen = false
-                yellowBtn.translationZ = 11F
-                redBtn.translationZ = 9F
-                blueBtn.translationZ = 9F
-
-            }else{
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 240f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 410f)
-                objectAnimator.duration = 1000
-                objectAnimator1.duration = 1000
-                objectAnimator.start()
-                objectAnimator1.start()
-                lightColorMenuOpen = true
-            }
-        }
-
-        redBtn.setOnClickListener {
-            if(lightColorMenuOpen){
-                var progressMem = lightPercentage
-                seekbar.progressDrawable = getDrawable(R.drawable.red_track)
-                seekbar.progress = 0
-                seekbar.progress = progressMem
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 69.8f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 69.8f)
-                objectAnimator.duration = 1000
-                objectAnimator1.duration = 1000
-                objectAnimator.start()
-                objectAnimator1.start()
-                lightColorMenuOpen = false
-                yellowBtn.translationZ = 9F
-                redBtn.translationZ = 11F
-                blueBtn.translationZ = 9F
-
-            }else{
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 240f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 410f)
-                objectAnimator.duration = 1000
-                objectAnimator1.duration = 1000
-                objectAnimator.start()
-                objectAnimator1.start()
-                lightColorMenuOpen = true
-            }
-        }
-
-        blueBtn.setOnClickListener {
-            if(lightColorMenuOpen){
-                var progressMem = lightPercentage
-                seekbar.progressDrawable = getDrawable(R.drawable.blue_track)
-                seekbar.progress = 0
-                seekbar.progress = progressMem
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 69.8f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 69.8f)
-                objectAnimator.duration = 1000
-                objectAnimator1.duration = 1000
-                objectAnimator.start()
-                objectAnimator1.start()
-                lightColorMenuOpen = false
-                yellowBtn.translationZ = 9F
-                redBtn.translationZ = 9F
-                blueBtn.translationZ = 11F
-
-            }else{
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 240f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 410f)
-                objectAnimator.duration = 1000
-                objectAnimator1.duration = 1000
-                objectAnimator.start()
-                objectAnimator1.start()
-                lightColorMenuOpen = true
-            }
-        }
-
-        seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                if(p2)lightPercentage = p1
-                lightText.text = "$p1%"
-                seekbar.alpha = 0.4f + (p1/100f)
+    fun timepick(view: View){
+        val onTimeSetListener =
+            OnTimeSetListener { timePicker, i, i1 ->
+                hour = i
+                minute = i1
+                val text = findViewById<TextView>(R.id.textView)
+                text.text = String.format(Locale.getDefault(),"%02d:%02d",hour,minute)
             }
 
-            override fun onStartTrackingTouch(p0: SeekBar?) {
-            }
-
-            override fun onStopTrackingTouch(p0: SeekBar?) {
-            }
-            })
-
-        onOffBtn.setOnClickListener {
-            lightsOn = !lightsOn
-            if(lightsOn){
-                onOffBtn.setImageResource(R.drawable.lights_on_symbol)
-                darkening.alpha = 0.0f
-                seekbar.isEnabled = true
-                seekbar.progress = lightPercentage
-                blueBtn.isClickable = true
-                yellowBtn.isClickable = true
-                redBtn.isClickable = true
-            }else{
-                onOffBtn.setImageResource(R.drawable.lights_off_symbol)
-                darkening.alpha = 0.25f
-                seekbar.progress = 0
-                seekbar.isEnabled = false
-                blueBtn.isClickable = false
-                yellowBtn.isClickable = false
-                redBtn.isClickable = false
-            }
-        }
+        var timePickerDialog = TimePickerDialog(this,onTimeSetListener,hour,minute,true)
+        timePickerDialog.setTitle("Select time")
+        timePickerDialog.show()
     }
 }

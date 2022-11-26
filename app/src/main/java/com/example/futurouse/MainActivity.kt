@@ -1,5 +1,8 @@
 package com.example.futurouse
 
+import android.animation.ObjectAnimator
+import android.app.TimePickerDialog
+import android.app.TimePickerDialog.OnTimeSetListener
 import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -9,6 +12,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
@@ -19,6 +23,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
+import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.navigation.NavigationView
 import com.skydoves.balloon.ArrowPositionRules
 import com.skydoves.balloon.Balloon
@@ -27,22 +32,17 @@ import com.skydoves.balloon.BalloonSizeSpec
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import me.tankery.lib.circularseekbar.CircularSeekBar
+import java.util.*
 
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    var currTemp = 10f
-    var newTemp = 10f
-
-    val rotateValue = 2800L
-    val rotateTotalModes = 3L
-    var rotateMode = 0L
-    var rotateStep = 920
-
     var blindsPerc = arrayOf("0%", "25%", "50%", "75%", "100%")
     var currentBlindsIndex = 0
-    var lightPercentage = 20
-    var lightsOn = true
+
+    var hour = 0
+    var minute = 0
+    lateinit var button : CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
         // more info question mark
-        val button: AppCompatImageButton = findViewById(R.id.button)
+        val button = findViewById<ImageButton>(R.id.button)
 
         val balloon = Balloon.Builder(applicationContext)
             .setWidthRatio(1.0f)
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close)
         toggle.isDrawerIndicatorEnabled = true
         drawerLayout.addDrawerListener(toggle)
-        toggle.drawerArrowDrawable.color = R.color.black
+        toggle.drawerArrowDrawable.color = Color.BLACK
         toggle.syncState()
 
         nav_menu.setNavigationItemSelectedListener(this)
@@ -148,115 +148,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    fun thermostat(view: View){
-
-        setContentView(R.layout.thermostat_screen)
-
-
-        val fanImg = findViewById<ImageView>(R.id.imageView2);
-
-
-        val rotate = AnimationUtils.loadAnimation(this, R.anim.rotate)
-        rotate.duration = rotateValue
-        rotate.setInterpolator(LinearInterpolator())
-        fanImg.animation = rotate
-
-        val currentTemperature = findViewById<TextView>(R.id.textView2)
-        val newTemperature = findViewById<TextView>(R.id.textView3)
-        val thermometer = findViewById<ImageView>(R.id.imageView1)
-        currentTemperature.text = "${currTemp.toInt()} ºC"
-        newTemperature.text = "${newTemp.toInt()} ºC"
-
-        var seekbar: CircularSeekBar? = findViewById(R.id.seekbar)
-        seekbar?.progress = currTemp
-        seekbar?.circleProgressColor = Color.rgb(currTemp.toInt()*(255/35),0,255-currTemp.toInt()*(255/35))
-        seekbar?.setOnSeekBarChangeListener(object : CircularSeekBar.OnCircularSeekBarChangeListener{
-            override fun onProgressChanged(
-                circularSeekBar: CircularSeekBar?,
-                progress: Float,
-                fromUser: Boolean
-            ) {
-                seekbar.circleProgressColor = Color.rgb(progress.toInt()*(255/35),0,255-progress.toInt()*(255/35))
-                newTemp = progress
-                newTemperature.text = "${newTemp.toInt()} ºC"
-            }
-
-            override fun onStopTrackingTouch(seekBar: CircularSeekBar?) {
-                val dif = newTemp - currTemp
-                if(dif.toInt() != 0){
-                    if(dif > 0.0f) thermometer.setImageResource(R.drawable.thermometer_temperature_up)
-                    else thermometer.setImageResource(R.drawable.thermometer_temperature_down)
-                    thermometer.alpha = 255F
-                    startCounter(currentTemperature,thermometer)
-                }
-            }
-
-            override fun onStartTrackingTouch(seekBar: CircularSeekBar?) {
-
-            }
-        })
-
-        fanImg.setOnClickListener {
-            rotate.duration = rotateValue - rotateStep*(rotateMode % rotateTotalModes)
-            rotateMode++
-            fanImg.animation = rotate
-        }
-    }
-    fun startCounter(textView : TextView,imageView: ImageView){
-        val timeStart = 5000L
-        val timeStep = 1000L
-        object : CountDownTimer(timeStart, timeStep) {
-            val dif = newTemp - currTemp
-            val step = dif/(timeStart/1000)
-            override fun onTick(l: Long) {
-                currTemp += step
-                textView.text = "${currTemp.toInt()} ºC"
-            }
-            override fun onFinish() {
-                imageView.alpha = 0F
-            }
-        }.start()
+    fun garden(view: View){
+        setContentView(R.layout.irrigation)
+        button = findViewById<CardView>(R.id.button)
     }
 
-    fun lightsChange(view:View){
-        setContentView(R.layout.lights_change_screen)
-        val seekbar = findViewById<SeekBar>(R.id.seekbar)
-        val lightText = findViewById<TextView>(R.id.textView)
-        val onOffBtn = findViewById<ImageView>(R.id.imageView1)
-        val darkening = findViewById<CardView>(R.id.cardView)
-
-        if(lightsOn){
-            onOffBtn.setImageResource(R.drawable.lights_on_symbol)
-            darkening.alpha = 0.0f
-        }else{
-            onOffBtn.setImageResource(R.drawable.ligthts_off_symbol)
-            darkening.alpha = 0.25f
-        }
-
-        lightText.text = "$lightPercentage%"
-        seekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                lightPercentage = p1
-                lightText.text = "$p1%"
+    fun timepick(view: View){
+        val onTimeSetListener =
+            OnTimeSetListener { timePicker, i, i1 ->
+                hour = i
+                minute = i1
+                val text = findViewById<TextView>(R.id.textView)
+                text.text = String.format(Locale.getDefault(),"%02d:%02d",hour,minute)
             }
 
-            override fun onStartTrackingTouch(p0: SeekBar?) {
-            }
-
-            override fun onStopTrackingTouch(p0: SeekBar?) {
-            }
-
-        })
-
-        onOffBtn.setOnClickListener {
-            lightsOn = !lightsOn
-            if(lightsOn){
-                onOffBtn.setImageResource(R.drawable.lights_on_symbol)
-                darkening.alpha = 0.0f
-            }else{
-                onOffBtn.setImageResource(R.drawable.ligthts_off_symbol)
-                darkening.alpha = 0.25f
-            }
-        }
+        var timePickerDialog = TimePickerDialog(this,onTimeSetListener,hour,minute,true)
+        timePickerDialog.setTitle("Select time")
+        timePickerDialog.show()
     }
 }

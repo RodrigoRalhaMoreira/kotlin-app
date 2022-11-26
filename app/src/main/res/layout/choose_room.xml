@@ -4,9 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#FFFAFA"
+        android:translationZ="0dp"></androidx.cardview.widget.CardView>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
+        android:translationZ="10dp"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +34,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
+        android:translationZ="10dp"
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,7 +49,7 @@
             android:layout_marginBottom="10dp">
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/kitchenButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="#E6FDAC"
@@ -159,7 +165,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFCEA9"
-                android:onClick="blinds"
                 app:cornerRadius="15dp" />
 
             <TextView

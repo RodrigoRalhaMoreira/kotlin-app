@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OvenMode">
+
+
+    <ImageView
+        android:id="@+id/imageMode5"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/oven_mode5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageMode6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageMode1"
+        app:layout_constraintVertical_bias="0.33" />
+
+
+    <ImageView
+        android:id="@+id/imageMode6"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/oven_mode6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageMode7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageMode5"
+        app:layout_constraintTop_toBottomOf="@+id/imageMode2"
+        app:layout_constraintVertical_bias="0.33" />
+
+    <ImageView
+        android:id="@+id/imageMode7"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/oven_mode7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageMode4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageMode6"
+        app:layout_constraintTop_toBottomOf="@+id/imageMode3"
+        app:layout_constraintVertical_bias="0.33" />
+
+
+    <ImageView
+        android:id="@+id/imageMode8"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/oven_mode8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageMode7"
+        app:layout_constraintTop_toBottomOf="@+id/imageMode4"
+        app:layout_constraintVertical_bias="0.33" />
+
+
+    <ImageView
+        android:id="@+id/oven_mode_selected1"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/oven_mode_selected1"
+        app:layout_constraintEnd_toStartOf="@+id/oven_mode_selected2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageMode1"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/oven_mode1"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/imageMode2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageMode2"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/oven_mode2"
+        app:layout_constraintEnd_toStartOf="@+id/imageMode3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageMode1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageMode3"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/oven_mode3"
+        app:layout_constraintEnd_toStartOf="@+id/imageMode4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageMode2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageMode4"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/oven_mode4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageMode3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/oven_mode_selected3"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/oven_mode_selected3"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/oven_mode_selected8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/oven_mode_selected2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/oven_mode_selected4"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/oven_mode_selected4"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.396"
+        app:layout_constraintStart_toEndOf="@+id/oven_mode_selected3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/oven_mode_selected2"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/oven_mode_selected2"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/oven_mode_selected3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/oven_mode_selected1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/oven_mode_selected5"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/oven_mode_selected5"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/oven_mode_selected6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/oven_mode_selected1"
+        app:layout_constraintVertical_bias="0.33" />
+
+    <ImageView
+        android:id="@+id/oven_mode_selected6"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/oven_mode_selected6"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/oven_mode_selected7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/oven_mode_selected5"
+        app:layout_constraintTop_toBottomOf="@+id/oven_mode_selected2"
+        app:layout_constraintVertical_bias="0.33" />
+
+    <ImageView
+        android:id="@+id/oven_mode_selected7"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/oven_mode_selected7"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/oven_mode_selected4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/oven_mode_selected6"
+        app:layout_constraintTop_toBottomOf="@+id/oven_mode_selected3"
+        app:layout_constraintVertical_bias="0.33" />
+
+    <ImageView
+        android:id="@+id/oven_mode_selected8"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/oven_mode_selected8"
+        android:layout_marginRight="10dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/oven_mode_selected7"
+        app:layout_constraintTop_toBottomOf="@+id/oven_mode_selected4"
+        app:layout_constraintVertical_bias="0.33" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

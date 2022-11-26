@@ -11,6 +11,7 @@
         android:layout_width="217dp"
 
         android:layout_height="217dp"
+        android:layout_marginTop="32dp"
         app:cs_circle_color="#e2e2e2"
         app:cs_circle_fill="@color/white"
         app:cs_circle_progress_color="#FF0000"
@@ -32,7 +33,6 @@
         app:cs_pointer_stroke_width="23dp"
         app:cs_progress="100"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

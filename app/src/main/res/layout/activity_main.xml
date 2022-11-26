@@ -5,15 +5,17 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/morning">
 
     <include layout="@layout/content_main" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_menu"
-        android:layout_width="match_parent"
+        android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="#FFFFFF"
         app:headerLayout="@layout/navigation_header"
         app:menu="@menu/navigation_menu" />
 

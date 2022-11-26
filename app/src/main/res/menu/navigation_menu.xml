@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item
-        android:id="@+id/home"
-        android:title="Home"
-        android:textColor="@color/black"
-        />
-    <item
-        android:id="@+id/rooms"
-        android:title="Rooms"
-        android:textColor="@color/black"
-        />
-    <item
-        android:id="@+id/about"
-        android:title="About us"
-        android:textColor="@color/black"
-        />
-    <item
-        android:id="@+id/guide"
-        android:title="Basic Guide"
-        android:textColor="@color/black"
-        />
-    <item
-        android:id="@+id/settings"
-        android:title="Settings"
-        android:textColor="@color/black"
-        />
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xmins="http://schemas.android.com/tools"
+    xmins:tools="https://schemas.android.com/tools">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:title="Home"
+            android:textColor="@color/black"
+            android:icon="@drawable/home_icon"
+            />
+        <item
+            android:id="@+id/rooms"
+            android:title="Rooms"
+            android:textColor="@color/black"
+            android:icon="@drawable/room"
+            />
+        <item
+            android:id="@+id/about"
+            android:title="About us"
+            android:textColor="@color/black"
+            android:icon="@drawable/about_icon"
+            />
+        <item
+            android:id="@+id/guide"
+            android:title="Basic Guide"
+            android:textColor="@color/black"
+            android:icon="@drawable/guide"
+            />
+        <item
+            android:id="@+id/settings"
+            android:title="Settings"
+            android:textColor="@color/black"
+            android:icon="@drawable/setting"
+            />
+    </group>
 </menu>

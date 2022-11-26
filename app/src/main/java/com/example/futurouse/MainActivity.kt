@@ -16,6 +16,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.cardview.widget.CardView
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
@@ -79,6 +80,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_menu.setNavigationItemSelectedListener(this)
 
         supportActionBar?.title = ""
+        supportActionBar?.setHomeButtonEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_hamburguer)
         changeFragment(Home())
 
     }

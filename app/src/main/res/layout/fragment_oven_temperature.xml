@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OvenTemperature">
+    tools:context=".oven.OvenTemperature">
 
     <me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/tempSeekBar"

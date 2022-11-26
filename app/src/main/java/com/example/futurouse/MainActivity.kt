@@ -8,7 +8,11 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.view.animation.LinearInterpolator
+import android.view.animation.RotateAnimation
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
@@ -45,7 +49,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
         // more info question mark
-        val button: AppCompatImageButton = findViewById(R.id.button)
+        val button = findViewById<ImageButton>(R.id.button)
 
         val balloon = Balloon.Builder(applicationContext)
             .setWidthRatio(1.0f)

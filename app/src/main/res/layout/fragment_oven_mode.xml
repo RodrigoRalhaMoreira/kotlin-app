@@ -6,50 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".OvenMode">
 
-    <ImageView
-        android:id="@+id/imageMode1"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginLeft="10dp"
-        android:src="@drawable/oven_mode1"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/imageMode2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageMode2"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:src="@drawable/oven_mode2"
-        app:layout_constraintEnd_toStartOf="@+id/imageMode3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageMode1"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageMode3"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:src="@drawable/oven_mode3"
-        app:layout_constraintEnd_toStartOf="@+id/imageMode4"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageMode2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ImageView
-        android:id="@+id/imageMode4"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/oven_mode4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageMode3"
-        app:layout_constraintTop_toTopOf="parent" />
-
 
     <ImageView
         android:id="@+id/imageMode5"
@@ -109,6 +65,7 @@
         android:layout_width="68dp"
         android:layout_height="68dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="56dp"
         android:src="@drawable/oven_mode_selected1"
         app:layout_constraintEnd_toStartOf="@+id/oven_mode_selected2"
         app:layout_constraintHorizontal_bias="0.5"
@@ -116,20 +73,57 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/oven_mode_selected2"
+        android:id="@+id/imageMode1"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:src="@drawable/oven_mode_selected2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/oven_mode1"
         android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/oven_mode_selected3"
+        app:layout_constraintEnd_toStartOf="@+id/imageMode2"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/oven_mode_selected1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageMode2"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/oven_mode2"
+        app:layout_constraintEnd_toStartOf="@+id/imageMode3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageMode1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageMode3"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/oven_mode3"
+        app:layout_constraintEnd_toStartOf="@+id/imageMode4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageMode2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageMode4"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/oven_mode4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageMode3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/oven_mode_selected3"
         android:layout_width="65dp"
         android:layout_height="65dp"
+        android:layout_marginTop="56dp"
         android:src="@drawable/oven_mode_selected3"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/oven_mode_selected8"
@@ -141,13 +135,26 @@
         android:id="@+id/oven_mode_selected4"
         android:layout_width="65dp"
         android:layout_height="65dp"
+        android:layout_marginTop="56dp"
         android:layout_marginRight="10dp"
         android:src="@drawable/oven_mode_selected4"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.396"
         app:layout_constraintStart_toEndOf="@+id/oven_mode_selected3"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/oven_mode_selected2"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/oven_mode_selected2"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/oven_mode_selected3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/oven_mode_selected1"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/oven_mode_selected5"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fafafa"
-    tools:context=".OvenActivity">
+    tools:context=".oven.OvenActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,6 +28,8 @@
                 android:focusable="true"
                 android:maxWidth="45dp"
                 android:maxHeight="45dp"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
                 android:onClick="goBack"
                 android:src="@drawable/back_arrow_gray"></ImageView>
 
@@ -41,7 +43,7 @@
                     android:layout_height="35dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Kitchen"
+                    android:text="Oven"
                     android:textColor="#58595A"
                     android:textSize="30dp"></TextView>
 
@@ -50,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:paddingTop="-40dp"
-                    android:text="Oven"
+                    android:text="Kitchen"
                     android:textColor="#58595A"
                     android:textSize="15dp"></TextView>
 
@@ -60,57 +62,41 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="168dp">
+            android:layout_height="149dp">
 
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="193dp"
-                android:layout_height="117dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginBottom="4dp"
+            <Button
+                android:layout_width="183dp"
+                android:layout_height="84dp"
+                android:backgroundTint="#00000000"
+                android:background="@drawable/layout_start_button"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/oven_vector" />
+                app:layout_constraintVertical_bias="0.5">
 
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="56dp"
-                android:layout_height="67dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-                app:layout_constraintEnd_toEndOf="@+id/imageView6"
-                app:layout_constraintStart_toStartOf="@+id/imageView6"
-                app:layout_constraintTop_toTopOf="@+id/imageView6"
-                app:layout_constraintVertical_bias="0.596"
-                app:srcCompat="@drawable/flames" />
-
-
-            <!--><pl.droidsonroids.gif.GifImageView
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@drawable/flames" />-->
+            </Button>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="138dp">
+            android:layout_height="100dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/modeButton"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_marginRight="3dp"
-                app:cardBackgroundColor="#c1e6fa"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="#FFFAC7"
                 app:cardCornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tempButton"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -148,18 +134,21 @@
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_marginRight="3dp"
-                app:cardBackgroundColor="#c1e6fa"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="#FFFAC7"
                 app:cardCornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/timerButton"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/modeButton"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent">
 
                     <TextView
                         android:id="@+id/textViewTemp"
@@ -181,10 +170,10 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="24dp"
                         android:layout_marginEnd="9dp"
+                        android:gravity="center"
                         android:text="100ºC"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:gravity="center"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -197,13 +186,13 @@
                 android:layout_width="85dp"
                 android:layout_height="85dp"
                 android:layout_marginRight="3dp"
-                app:cardBackgroundColor="#c1e6fa"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="#FFFAC7"
                 app:cardCornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/programsButton"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/tempButton"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -241,13 +230,13 @@
                 android:id="@+id/programsButton"
                 android:layout_width="85dp"
                 android:layout_height="85dp"
-                app:cardBackgroundColor="#c1e6fa"
+                android:layout_marginBottom="5dp"
+                app:cardBackgroundColor="#FFFAC7"
                 app:cardCornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/timerButton"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.5">
 
 
@@ -276,47 +265,42 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/programs_icon" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <FrameLayout
-            android:id="@+id/ovenFragContainer"
-            android:name="com.example.futurouse.OvenMode"
-            android:layout_width="match_parent"
-            android:layout_height="263dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5">
-
-        </FrameLayout>
-
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="85dp">
+            android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="113dp"
-                android:layout_height="45dp"
-                android:backgroundTint="#FFFFFF"
-                android:elevation="@dimen/cardview_default_elevation"
-                android:text="START"
-                android:textColor="#646464"
-
-                app:cornerRadius="15dp"
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="559dp"
+                android:layout_height="550dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.5" />
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/flames" />
+
+            <FrameLayout
+                android:id="@+id/ovenFragContainer"
+                android:name="com.example.futurouse.OvenMode"
+                android:layout_width="351dp"
+                android:layout_height="292dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/layout_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+            </FrameLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

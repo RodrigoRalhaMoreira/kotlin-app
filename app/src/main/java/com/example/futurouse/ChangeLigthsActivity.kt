@@ -14,6 +14,10 @@ import data.Lights
 import data.Utils
 import kotlinx.android.synthetic.main.activity_kitchen.*
 import kotlinx.android.synthetic.main.lights_change_screen.*
+import java.io.File
+import java.io.FileWriter
+import java.io.IOException
+import java.io.PrintWriter
 
 class ChangeLigthsActivity  : AppCompatActivity(){
 
@@ -214,6 +218,7 @@ class ChangeLigthsActivity  : AppCompatActivity(){
                 yellowBtn.isClickable = true
                 redBtn.isClickable = true
             }else{
+
                 onOffBtn.setImageResource(R.drawable.lights_off_symbol)
                 darkening.alpha = 0.25f
                 seekbar.progress = 0
@@ -221,6 +226,12 @@ class ChangeLigthsActivity  : AppCompatActivity(){
                 blueBtn.isClickable = false
                 yellowBtn.isClickable = false
                 redBtn.isClickable = false
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 69.8f)
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 69.8f)
+                objectAnimator.duration = 1000
+                objectAnimator1.duration = 1000
+                objectAnimator.start()
+                objectAnimator1.start()
             }
         }
 
@@ -231,6 +242,14 @@ class ChangeLigthsActivity  : AppCompatActivity(){
         super.onStop()
         val gson = Gson()
         val gsonPretty = GsonBuilder().setPrettyPrinting().create()
+        var temp = lights?.get(0)
+        if (temp != null) {
+            temp.lightPercentage = lightPercentage
+            temp.lightColor = lightColor
+            temp.lightsOn = lightsOn
+        }
+
+        val jsonTutsListPretty: String = gsonPretty.toJson(lights)
 
     }
 }

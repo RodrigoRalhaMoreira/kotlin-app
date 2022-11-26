@@ -32,20 +32,8 @@ import java.util.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    var currTemp = 10f
-    var newTemp = 10f
-
-    val rotateBaseValue = 1F
-    val rotateTotalModes = 3f
-    var rotateMode = 0f
-    var rotateStep = 1.5f
-
     var blindsPerc = arrayOf("0%", "25%", "50%", "75%", "100%")
     var currentBlindsIndex = 0
-
-    var lightPercentage = 20
-    var lightColorMenuOpen = false
-    var lightsOn = true
 
     var hour = 0
     var minute = 0
@@ -88,9 +76,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         supportActionBar?.title = ""
         changeFragment(Home())
-
-
-
 
     }
 
@@ -153,79 +138,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             3 -> blindImage.setImageResource(R.drawable.blinds_70)
             4 -> blindImage.setImageResource(R.drawable.blinds_100)
         }
-    }
-
-    fun thermostat(view: View){
-
-        setContentView(R.layout.thermostat_screen)
-
-        val fanImg = findViewById<LottieAnimationView>(R.id.imageView2);
-
-        fanImg.speed = rotateBaseValue + rotateStep*(rotateMode % rotateTotalModes)
-        //val rotate = AnimationUtils.loadAnimation(this, R.anim.rotate)
-        //rotate.duration = rotateValue
-        //rotate.interpolator = LinearInterpolator()
-        //fanImg.animation = rotate
-
-        val currentTemperature = findViewById<TextView>(R.id.textView2)
-        val newTemperature = findViewById<TextView>(R.id.textView3)
-        val thermometer = findViewById<ImageView>(R.id.imageView1)
-        currentTemperature.text = "${currTemp.toInt()} ºC"
-        newTemperature.text = "${newTemp.toInt()} ºC"
-
-        var seekbar: CircularSeekBar? = findViewById(R.id.seekbar)
-        seekbar?.progress = currTemp
-        seekbar?.circleProgressColor = Color.rgb(currTemp.toInt()*(255/35),0,255-currTemp.toInt()*(255/35))
-        seekbar?.setOnSeekBarChangeListener(object : CircularSeekBar.OnCircularSeekBarChangeListener{
-            override fun onProgressChanged(
-                circularSeekBar: CircularSeekBar?,
-                progress: Float,
-                fromUser: Boolean
-            ) {
-                seekbar.circleProgressColor = Color.rgb(progress.toInt()*(255/35),0,255-progress.toInt()*(255/35))
-                newTemp = progress
-                newTemperature.text = "${newTemp.toInt()} ºC"
-            }
-
-            override fun onStopTrackingTouch(seekBar: CircularSeekBar?) {
-                val dif = newTemp - currTemp
-                if(dif.toInt() != 0){
-                    if(dif > 0.0f) thermometer.setImageResource(R.drawable.thermometer_temperature_up)
-                    else thermometer.setImageResource(R.drawable.thermometer_temperature_down)
-                    thermometer.alpha = 1f
-                    startCounter(currentTemperature,thermometer)
-                }
-            }
-
-            override fun onStartTrackingTouch(seekBar: CircularSeekBar?) {
-
-            }
-        })
-
-        /*fanImg.setOnClickListener {
-            rotate.duration = rotateValue - rotateStep*(rotateMode % rotateTotalModes)
-            rotateMode++
-            fanImg.animation = rotate
-        }*/
-        fanImg.setOnClickListener {
-            rotateMode++
-            fanImg.speed = rotateBaseValue + rotateStep*(rotateMode % rotateTotalModes)
-        }
-    }
-    fun startCounter(textView : TextView,imageView: ImageView){
-        val timeStart = 5000L
-        val timeStep = 1000L
-        object : CountDownTimer(timeStart, timeStep) {
-            val dif = newTemp - currTemp
-            val step = dif/(timeStart/1000)
-            override fun onTick(l: Long) {
-                currTemp += step
-                textView.text = "${currTemp.toInt()} ºC"
-            }
-            override fun onFinish() {
-                imageView.alpha = 0F
-            }
-        }.start()
     }
 
     fun garden(view: View){

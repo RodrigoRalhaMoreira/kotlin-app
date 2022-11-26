@@ -31,6 +31,14 @@ class KitchenActivity : AppCompatActivity() {
             }
         }
 
+        thermostatButton.setOnClickListener{
+            Intent(this, ThermostatActivity::class.java).also {
+                it.putExtra("roomName","Kitchen")
+                startActivity(it)
+
+            }
+        }
+
         backButton.setOnClickListener { this.finish() }
 
     }

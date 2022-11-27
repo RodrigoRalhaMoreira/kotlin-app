@@ -1,8 +1,13 @@
 package com.example.futurouse;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static androidx.fragment.app.FragmentManager.TAG;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 
 public class Horizontal_ScrollView extends AppCompatActivity {
 

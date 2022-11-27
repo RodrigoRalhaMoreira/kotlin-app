@@ -42,6 +42,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:srcCompat="@drawable/question_m" />
+        app:srcCompat="@drawable/ic_baseline_question_mark_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

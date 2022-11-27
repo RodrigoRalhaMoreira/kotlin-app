@@ -3,11 +3,15 @@ package com.example.futurouse
 import android.animation.ObjectAnimator
 import android.app.TimePickerDialog
 import android.app.TimePickerDialog.OnTimeSetListener
+import android.content.ContentValues.TAG
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
@@ -16,12 +20,14 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.navigation.NavigationView
@@ -78,13 +84,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_menu.setNavigationItemSelectedListener(this)
-
         supportActionBar?.title = ""
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_hamburguer)
+        val wakeBtn = findViewById<CardView>(R.id.wake_btn)
+        wakeBtn?.setCardBackgroundColor(Color.parseColor("#DCDCD0"))
         changeFragment(Home())
-
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -166,4 +172,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         timePickerDialog.setTitle("Select time")
         timePickerDialog.show()
     }
+
 }

@@ -154,6 +154,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     fun garden(view: View){
         setContentView(R.layout.irrigation)
+
+        startHour = 15
+        startMinute = 0
+        endHour = 17
+        endMinute = 0
         val text = findViewById<TextView>(R.id.textView)
         text.text = String.format(Locale.getDefault(),"%02d:%02d",15,0)
         val text1 = findViewById<TextView>(R.id.textView1)
@@ -176,7 +181,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val wateringCan = findViewById<LottieAnimationView>(R.id.WateringCan)
         val onTimeSetListener =
             OnTimeSetListener { timePicker, i, i1 ->
-                if(i<endHour || (i==endHour && i1<endHour)) {
+                if(i<endHour || (i==endHour && i1<endMinute)) {
                     startHour = i
                     startMinute = i1
                     val text = findViewById<TextView>(R.id.textView)

@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/screenBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fafafa"
     tools:context=".oven.OvenActivity">
 
     <LinearLayout
@@ -30,7 +30,6 @@
                 android:maxHeight="45dp"
                 android:minWidth="48dp"
                 android:minHeight="48dp"
-                android:onClick="goBack"
                 android:src="@drawable/back_arrow_gray"></ImageView>
 
             <LinearLayout
@@ -62,13 +61,16 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="149dp">
+            android:layout_height="112dp">
 
             <Button
-                android:layout_width="183dp"
-                android:layout_height="84dp"
-                android:backgroundTint="#00000000"
+                android:id="@+id/onOffButton"
+                android:layout_width="147dp"
+                android:layout_height="56dp"
                 android:background="@drawable/layout_start_button"
+                android:text="TURN ON"
+                android:textSize="15dp"
+                app:backgroundTint="@null"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -277,8 +279,10 @@
             android:layout_height="match_parent">
 
             <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/flames"
                 android:layout_width="559dp"
                 android:layout_height="550dp"
+                android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"

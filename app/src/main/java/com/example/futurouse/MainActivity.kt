@@ -5,6 +5,7 @@ import android.app.TimePickerDialog
 import android.app.TimePickerDialog.OnTimeSetListener
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageButton
@@ -37,6 +38,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     var endHour = 0
     var endMinute = 0
     lateinit var button : CardView
+
+    private var flagNav: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +80,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_hamburguer)
-        changeFragment(Home())
+
+        // flag from botton navigation
+        flagNav = intent.getIntExtra("FLAG_NAV", -1)
+        when(flagNav) {
+            1 -> changeFragment(Rooms())
+            2 -> changeFragment(Settings())
+            else -> changeFragment(Home())
+        }
 
     }
 
@@ -103,7 +113,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    fun changeFragment(frag: Fragment) {
+    private fun changeFragment(frag: Fragment) {
         val fragment = supportFragmentManager.beginTransaction()
         fragment.replace(R.id.fragment_container, frag).commit()
     }

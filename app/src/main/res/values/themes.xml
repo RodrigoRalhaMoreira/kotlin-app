@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
     </style>
 
     <style name="Theme.Futurouse.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -27,11 +28,14 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-    
-    <style name="startButtonStyle" parent="@android:style/Widget.Button">
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:textStyle">bold</item>
+
+    <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="colorPrimary">@color/light_orange</item>
+        <item name="colorOnPrimary">@color/black</item>
     </style>
     
 </resources>

@@ -3,14 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="1dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginRight="1dp"
+    android:layout_marginBottom="1dp"
     tools:context=".oven.OvenPrograms">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <!--<android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TvShows"
+            android:scrollbars="vertical">
+
+        </android.support.v7.widget.RecyclerView>-->
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/setting1"
@@ -21,7 +33,7 @@
             android:focusable="true"
             android:checkable="true"
             app:strokeColor="#a4a4a4"
-            app:strokeWidth="2dp">
+            app:strokeWidth="1dp">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -60,6 +72,16 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
+                <ImageView
+                    android:id="@+id/scheduleOven1"
+                    android:layout_width="38dp"
+                    android:layout_height="42dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/schedule"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -74,7 +96,7 @@
             android:focusable="true"
             android:checkable="true"
             app:strokeColor="#a4a4a4"
-            app:strokeWidth="2dp">
+            app:strokeWidth="1dp">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -113,6 +135,16 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
+                <ImageView
+                    android:id="@+id/scheduleOven2"
+                    android:layout_width="38dp"
+                    android:layout_height="42dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/schedule"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -127,7 +159,7 @@
             android:focusable="true"
             android:checkable="true"
             app:strokeColor="#a4a4a4"
-            app:strokeWidth="2dp">
+            app:strokeWidth="1dp">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -166,6 +198,16 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
+                <ImageView
+                    android:id="@+id/scheduleOven3"
+                    android:layout_width="38dp"
+                    android:layout_height="42dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/schedule"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -180,7 +222,7 @@
             android:focusable="true"
             android:checkable="true"
             app:strokeColor="#a4a4a4"
-            app:strokeWidth="2dp">
+            app:strokeWidth="1dp">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -218,6 +260,16 @@
                     android:src="@drawable/oven_mode7"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageView
+                    android:id="@+id/scheduleOven4"
+                    android:layout_width="38dp"
+                    android:layout_height="42dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/schedule"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

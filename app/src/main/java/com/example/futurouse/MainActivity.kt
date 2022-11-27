@@ -1,33 +1,20 @@
 package com.example.futurouse
 
-import android.animation.ObjectAnimator
+import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.app.TimePickerDialog.OnTimeSetListener
-import android.content.ContentValues.TAG
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.os.CountDownTimer
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.view.animation.LinearInterpolator
-import android.view.animation.RotateAnimation
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.SeekBar
 import android.widget.TextView
-import androidx.annotation.RequiresApi
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatImageButton
 import androidx.cardview.widget.CardView
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.navigation.NavigationView
@@ -37,7 +24,6 @@ import com.skydoves.balloon.BalloonAnimation
 import com.skydoves.balloon.BalloonSizeSpec
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-import me.tankery.lib.circularseekbar.CircularSeekBar
 import java.util.*
 
 
@@ -46,9 +32,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     var blindsPerc = arrayOf("0%", "25%", "50%", "75%", "100%")
     var currentBlindsIndex = 0
 
-    var hour = 0
-    var minute = 0
+    var startHour = 0
+    var startMinute = 0
+    var endHour = 0
+    var endMinute = 0
     lateinit var button : CardView
+
+    private var flagNav: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,6 +74,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_menu.setNavigationItemSelectedListener(this)
+
         supportActionBar?.title = ""
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -91,6 +82,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val wakeBtn = findViewById<CardView>(R.id.wake_btn)
         wakeBtn?.setCardBackgroundColor(Color.parseColor("#DCDCD0"))
         changeFragment(Home())
+
+        // flag from botton navigation
+        flagNav = intent.getIntExtra("FLAG_NAV", -1)
+        when(flagNav) {
+            1 -> changeFragment(Rooms())
+            2 -> changeFragment(Settings())
+            else -> changeFragment(Home())
+        }
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    fun changeFragment(frag: Fragment) {
+    private fun changeFragment(frag: Fragment) {
         val fragment = supportFragmentManager.beginTransaction()
         fragment.replace(R.id.fragment_container, frag).commit()
     }
@@ -156,20 +156,79 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     fun garden(view: View){
         setContentView(R.layout.irrigation)
-        button = findViewById<CardView>(R.id.button)
+
+        startHour = 15
+        startMinute = 0
+        endHour = 17
+        endMinute = 0
+        val text = findViewById<TextView>(R.id.textView)
+        text.text = String.format(Locale.getDefault(),"%02d:%02d",15,0)
+        val text1 = findViewById<TextView>(R.id.textView1)
+        text1.text = String.format(Locale.getDefault(),"%02d:%02d",17,0)
+        val rightNow = Calendar.getInstance()
+        val hour: Int =rightNow.get(Calendar.HOUR_OF_DAY)
+        val minute: Int =rightNow.get(Calendar.MINUTE)
+        val wateringCan = findViewById<LottieAnimationView>(R.id.WateringCan)
+
+        if(hour>startHour && hour<endHour || hour>startHour && hour==endHour && minute<endMinute || hour==startHour && minute>startMinute && hour<endHour ) {
+            wateringCan.alpha = 1f
+        }
+        else wateringCan.alpha = 0f
     }
 
     fun timepick(view: View){
+        val rightNow = Calendar.getInstance()
+        val hour: Int =rightNow.get(Calendar.HOUR_OF_DAY)
+        val minute: Int =rightNow.get(Calendar.MINUTE)
+        val wateringCan = findViewById<LottieAnimationView>(R.id.WateringCan)
         val onTimeSetListener =
             OnTimeSetListener { timePicker, i, i1 ->
-                hour = i
-                minute = i1
-                val text = findViewById<TextView>(R.id.textView)
-                text.text = String.format(Locale.getDefault(),"%02d:%02d",hour,minute)
+                if(i<endHour || (i==endHour && i1<endMinute)) {
+                    startHour = i
+                    startMinute = i1
+                    val text = findViewById<TextView>(R.id.textView)
+                    text.text =
+                        String.format(Locale.getDefault(), "%02d:%02d", startHour, startMinute)
+                    if(hour>startHour && hour<endHour || hour>startHour && hour==endHour && minute<endMinute || hour==startHour && minute>startMinute && hour<endHour ) {
+                        wateringCan.alpha = 1f
+                    }
+                    else wateringCan.alpha = 0f
+                }else{
+                    val toast: Toast = Toast.makeText(this, "Start time cant be greater than end time", Toast.LENGTH_SHORT)
+                    toast.show()
+                }
             }
 
-        var timePickerDialog = TimePickerDialog(this,onTimeSetListener,hour,minute,true)
-        timePickerDialog.setTitle("Select time")
+
+        var timePickerDialog = TimePickerDialog(this, AlertDialog.THEME_HOLO_LIGHT,onTimeSetListener,startHour,startMinute,true)
+        timePickerDialog.setTitle("Select start time")
+        timePickerDialog.show()
+    }
+
+    fun timepick1(view: View){
+        val rightNow = Calendar.getInstance()
+        val hour: Int =rightNow.get(Calendar.HOUR_OF_DAY)
+        val minute: Int =rightNow.get(Calendar.MINUTE)
+        val wateringCan = findViewById<LottieAnimationView>(R.id.WateringCan)
+        val onTimeSetListener =
+            OnTimeSetListener { timePicker, i, i1 ->
+                if(i>startHour || (i==startHour && i1>startHour)) {
+                    endHour = i
+                    endMinute = i1
+                    val text = findViewById<TextView>(R.id.textView1)
+                    text.text = String.format(Locale.getDefault(), "%02d:%02d", endHour, endMinute)
+                    if(hour>startHour && hour<endHour || hour>startHour && hour==endHour && minute<endMinute || hour==startHour && minute>startMinute && hour<endHour ) {
+                        wateringCan.alpha = 1f
+                    }
+                    else wateringCan.alpha = 0f
+                }else{
+                    val toast: Toast = Toast.makeText(this, "Start time cant be lower than end time", Toast.LENGTH_SHORT)
+                    toast.show()
+                }
+            }
+
+        var timePickerDialog = TimePickerDialog(this, AlertDialog.THEME_HOLO_LIGHT,onTimeSetListener,endHour,endMinute,true)
+        timePickerDialog.setTitle("Select end time")
         timePickerDialog.show()
     }
 

@@ -1,7 +1,6 @@
 package com.example.futurouse.oven
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.NumberPicker
@@ -29,6 +28,16 @@ class OvenTimer : Fragment(R.layout.fragment_oven_timer) {
 
         minutesPicker.displayedValues = createArray(MINUTES_SYMBOL, MAX_MINUTES+1)
         hoursPicker.displayedValues = createArray(HOURS_SYMBOL, MAX_HOURS+1)
+
+
+        minutesPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+            (activity as OvenActivity).setMinutes(newVal)
+        }
+
+        hoursPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+            (activity as OvenActivity).setHours(newVal)
+        }
+
     }
 
     private fun createArray(symbol: String, max: Int): Array<String?> {

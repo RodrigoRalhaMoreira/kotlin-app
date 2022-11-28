@@ -12,6 +12,8 @@
 
 
     <androidx.cardview.widget.CardView
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        android:layout_marginBottom="40dp"
         android:layout_width="451dp"
         android:layout_height="183dp"
         android:layout_marginTop="-90dp"
@@ -44,7 +46,7 @@
             android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/back_arrow_gray"
+            android:src="@drawable/back_arrow_black"
             ></ImageView>
         <TextView
             android:id="@+id/textView4"

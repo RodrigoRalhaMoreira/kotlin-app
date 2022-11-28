@@ -33,11 +33,9 @@ class ChangeLigthsActivity  : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lights_change_screen)
 
-        val screenWidth = this.getResources().getDisplayMetrics().widthPixels;
-        val screenHeight = this.getResources().getDisplayMetrics().heightPixels;
+        val screenWidth = this.getResources().getDisplayMetrics().widthPixels
 
         val extras = intent.extras;
-
 
         var roomName = findViewById<TextView>(R.id.textView3)
 

@@ -29,12 +29,14 @@ class ChangeLigthsActivity  : AppCompatActivity(){
     var  lights: List<Lights>? = null
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.lights_change_screen)
 
-        val extras = intent.extras;
+        val screenWidth = this.getResources().getDisplayMetrics().widthPixels
 
+        val extras = intent.extras;
 
         var roomName = findViewById<TextView>(R.id.textView3)
 
@@ -63,6 +65,10 @@ class ChangeLigthsActivity  : AppCompatActivity(){
         val yellowBtn = findViewById<CardView>(R.id.cardView2)
         val redBtn = findViewById<CardView>(R.id.cardView1)
         val blueBtn = findViewById<CardView>(R.id.cardView3)
+
+        val buttonStartCord: IntArray = intArrayOf(0,0)
+
+        redBtn.getLocationOnScreen(buttonStartCord)
 
         when (lightColor) {
             2 -> {
@@ -109,8 +115,8 @@ class ChangeLigthsActivity  : AppCompatActivity(){
                 if (progressMem != null) {
                     seekbar.progress = progressMem
                 }
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 69.8f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 69.8f)
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"translationX",buttonStartCord[0].toFloat())
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"translationX",buttonStartCord[0].toFloat())
                 objectAnimator.duration = 1000
                 objectAnimator1.duration = 1000
                 objectAnimator.start()
@@ -122,8 +128,8 @@ class ChangeLigthsActivity  : AppCompatActivity(){
                 lightColor = 2
 
             }else{
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 240f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 410f)
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn, "translationX",screenWidth/11f - buttonStartCord[0] + redBtn.width /2f)
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn, "translationX",screenWidth/4f - buttonStartCord[0] + redBtn.width /2f)
                 objectAnimator.duration = 1000
                 objectAnimator1.duration = 1000
                 objectAnimator.start()
@@ -140,8 +146,8 @@ class ChangeLigthsActivity  : AppCompatActivity(){
                 if (progressMem != null) {
                     seekbar.progress = progressMem
                 }
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 69.8f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 69.8f)
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"translationX",buttonStartCord[0].toFloat())
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"translationX",buttonStartCord[0].toFloat())
                 objectAnimator.duration = 1000
                 objectAnimator1.duration = 1000
                 objectAnimator.start()
@@ -153,8 +159,8 @@ class ChangeLigthsActivity  : AppCompatActivity(){
                 lightColor = 1
 
             }else{
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 240f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 410f)
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn, "translationX",screenWidth/11f - buttonStartCord[0] + redBtn.width /2f)
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn, "translationX",screenWidth/4f - buttonStartCord[0] + redBtn.width /2f)
                 objectAnimator.duration = 1000
                 objectAnimator1.duration = 1000
                 objectAnimator.start()
@@ -171,8 +177,8 @@ class ChangeLigthsActivity  : AppCompatActivity(){
                 if (progressMem != null) {
                     seekbar.progress = progressMem
                 }
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 69.8f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 69.8f)
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"translationX",buttonStartCord[0].toFloat())
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"translationX",buttonStartCord[0].toFloat())
                 objectAnimator.duration = 1000
                 objectAnimator1.duration = 1000
                 objectAnimator.start()
@@ -184,8 +190,8 @@ class ChangeLigthsActivity  : AppCompatActivity(){
                 lightColor = 0
 
             }else{
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 240f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 410f)
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn, "translationX",screenWidth/11f - buttonStartCord[0] + redBtn.width /2f)
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn, "translationX",screenWidth/4f - buttonStartCord[0] + redBtn.width /2f)
                 objectAnimator.duration = 1000
                 objectAnimator1.duration = 1000
                 objectAnimator.start()
@@ -228,8 +234,8 @@ class ChangeLigthsActivity  : AppCompatActivity(){
                 blueBtn.isClickable = false
                 yellowBtn.isClickable = false
                 redBtn.isClickable = false
-                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"x", 69.8f)
-                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"x", 69.8f)
+                val objectAnimator = ObjectAnimator.ofFloat(yellowBtn,"translationX",buttonStartCord[0].toFloat())
+                val objectAnimator1 = ObjectAnimator.ofFloat(redBtn,"translationX",buttonStartCord[0].toFloat())
                 objectAnimator.duration = 1000
                 objectAnimator1.duration = 1000
                 objectAnimator.start()
@@ -250,8 +256,6 @@ class ChangeLigthsActivity  : AppCompatActivity(){
             temp.lightColor = lightColor
             temp.lightsOn = lightsOn
         }
-
-        val jsonTutsListPretty: String = gsonPretty.toJson(lights)
 
     }
 }

@@ -12,6 +12,8 @@
 
 
     <androidx.cardview.widget.CardView
+        app:layout_constraintBottom_toBottomOf="@id/container"
+        android:layout_marginBottom="40dp"
         android:layout_width="451dp"
         android:layout_height="183dp"
         android:layout_marginTop="-90dp"

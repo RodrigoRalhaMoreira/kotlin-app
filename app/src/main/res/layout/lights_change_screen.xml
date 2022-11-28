@@ -51,7 +51,7 @@
             android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/back_arrow_gray"
+            android:src="@drawable/back_arrow_black"
             ></ImageView>
         <TextView
             android:id="@+id/textView4"

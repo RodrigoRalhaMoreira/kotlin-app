@@ -2,6 +2,7 @@ package com.example.futurouse
 
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
@@ -217,6 +218,7 @@ class ChangeLigthsActivity  : AppCompatActivity(){
                 blueBtn.isClickable = true
                 yellowBtn.isClickable = true
                 redBtn.isClickable = true
+
             }else{
 
                 onOffBtn.setImageResource(R.drawable.lights_off_symbol)

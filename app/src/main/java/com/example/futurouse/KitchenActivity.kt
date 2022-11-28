@@ -41,13 +41,6 @@ class KitchenActivity : AppCompatActivity() {
             }
         }
 
-        blindsButton.setOnClickListener {
-            Intent(this, BlindsActivity::class.java).also {
-                it.putExtra("roomName","Kitchen")
-                startActivity(it)
-            }
-        }
-
         backButton.setOnClickListener { this.finish() }
 
     }

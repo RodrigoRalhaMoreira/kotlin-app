@@ -38,6 +38,9 @@ class ChangeLigthsActivity  : AppCompatActivity(){
 
         if (extras != null) {
             roomName.text = extras.getString("roomName")
+            if(extras.getString("roomName").equals("Kitchen")){
+                lightsOn = true
+            }
         }
 
         /*val jsonFileString = Utils.getJsonDataFromAsset(applicationContext, "LightsState.json")
@@ -68,8 +71,6 @@ class ChangeLigthsActivity  : AppCompatActivity(){
         redBtn.getLocationOnScreen(buttonStartCord)
 
         lightColor = 2
-
-        lightsOn = true
 
         when (lightColor) {
             2 -> {

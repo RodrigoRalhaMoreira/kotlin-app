@@ -20,10 +20,14 @@ class OvenTemperature : Fragment(R.layout.fragment_oven_temperature) {
         super.onViewCreated(view, savedInstanceState)
 
         var bundle = this.arguments
-        var newTemp = bundle?.getString("temp") as String
+        if (bundle != null && !bundle.isEmpty) {
+            var newTemp = bundle?.getString("temp") as String
+            temperature.text = newTemp
+            tempSeekBar.progress = ( newTemp.filterNot { it == 'º' } ).toFloat()
+        }
 
-        temperature.text = newTemp
-        tempSeekBar.progress = ( newTemp.filterNot { it == 'º' } ).toFloat()
+
+
 
         tempSeekBar.setOnSeekBarChangeListener(object : CircularSeekBar.OnCircularSeekBarChangeListener{
             override fun onProgressChanged(

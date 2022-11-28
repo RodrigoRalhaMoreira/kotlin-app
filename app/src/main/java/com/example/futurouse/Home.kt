@@ -29,7 +29,7 @@ class Home : Fragment(R.layout.fragment_home) {
         }
 
         gardenIrrig.setOnClickListener {
-            var intent = Intent(activity,ChangeLigthsActivity::class.java)
+            var intent = Intent(activity,IrrigationActivity::class.java)
             startActivity(intent)
         }
 

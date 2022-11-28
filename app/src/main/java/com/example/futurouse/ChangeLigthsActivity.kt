@@ -1,24 +1,17 @@
 package com.example.futurouse
 
 import android.animation.ObjectAnimator
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
-import com.google.gson.reflect.TypeToken
-import data.Lights
-import data.Utils
 import kotlinx.android.synthetic.main.activity_kitchen.*
 import kotlinx.android.synthetic.main.lights_change_screen.*
-import java.io.File
-import java.io.FileWriter
-import java.io.IOException
-import java.io.PrintWriter
+
 
 class ChangeLigthsActivity  : AppCompatActivity(){
 
@@ -228,7 +221,6 @@ class ChangeLigthsActivity  : AppCompatActivity(){
                 redBtn.isClickable = true
 
             }else{
-
                 onOffBtn.setImageResource(R.drawable.lights_off_symbol)
                 darkening.alpha = 0.25f
                 seekbar.progress = 0
@@ -245,6 +237,7 @@ class ChangeLigthsActivity  : AppCompatActivity(){
             }
         }
 
-        imageView.setOnClickListener { this.finish() }
+        imageView.setOnClickListener {
+            this.finish() }
     }
 }

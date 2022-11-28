@@ -2,6 +2,7 @@ package com.example.futurouse
 
 import android.app.AlertDialog
 import android.app.TimePickerDialog
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.TextView
 import android.widget.Toast
 import com.airbnb.lottie.LottieAnimationView
 import kotlinx.android.synthetic.main.irrigation.*
+import kotlinx.android.synthetic.main.irrigation.onOff
+import kotlinx.android.synthetic.main.thermostat_screen.*
 import java.util.*
 
 class IrrigationActivity : AppCompatActivity() {
@@ -17,6 +20,7 @@ class IrrigationActivity : AppCompatActivity() {
     var startMinute = 0
     var endHour = 17
     var endMinute = 0
+    var isOn = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +44,19 @@ class IrrigationActivity : AppCompatActivity() {
         val wateringCan = findViewById<LottieAnimationView>(R.id.WateringCan)
 
         if(hour>startHour && hour<endHour || hour>startHour && hour==endHour && minute<endMinute || hour==startHour && minute>startMinute && hour<endHour ) {
-            wateringCan.alpha = 1f
+            if(isOn)wateringCan.alpha = 1f
         }
         else wateringCan.alpha = 0f
+
+        onOff.setOnClickListener{
+            isOn = !isOn
+            if(isOn){
+                onOff.setImageResource(R.drawable.on_symbol)
+            }else{
+                onOff.setImageResource(R.drawable.off_symbol)
+                wateringCan.alpha = 0f
+            }
+        }
     }
 
     fun timepick(view: View){
@@ -59,7 +73,7 @@ class IrrigationActivity : AppCompatActivity() {
                     text.text =
                         String.format(Locale.getDefault(), "%02d:%02d", startHour, startMinute)
                     if (hour > startHour && hour < endHour || hour > startHour && hour == endHour && minute < endMinute || hour == startHour && minute > startMinute && hour < endHour) {
-                        wateringCan.alpha = 1f
+                        if(isOn)wateringCan.alpha = 1f
                     } else wateringCan.alpha = 0f
                 } else {
                     val toast: Toast = Toast.makeText(
@@ -90,7 +104,7 @@ class IrrigationActivity : AppCompatActivity() {
                     val text = findViewById<TextView>(R.id.textView1)
                     text.text = String.format(Locale.getDefault(), "%02d:%02d", endHour, endMinute)
                     if (hour > startHour && hour < endHour || hour > startHour && hour == endHour && minute < endMinute || hour == startHour && minute > startMinute && hour < endHour) {
-                        wateringCan.alpha = 1f
+                        if(isOn)wateringCan.alpha = 1f
                     } else wateringCan.alpha = 0f
                 } else {
                     val toast: Toast = Toast.makeText(

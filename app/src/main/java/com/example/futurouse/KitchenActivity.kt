@@ -22,12 +22,28 @@ class KitchenActivity : AppCompatActivity() {
 
         lightButton.setOnClickListener{
             Intent(this, ChangeLigthsActivity::class.java).also {
+                it.putExtra("roomName","Kitchen")
                 startActivity(it)
             }
         }
 
         thermostatButton.setOnClickListener{
             Intent(this, ThermostatActivity::class.java).also {
+                it.putExtra("roomName","Kitchen")
+                startActivity(it)
+            }
+        }
+
+        thermostatButton.setOnClickListener{
+            Intent(this, ThermostatActivity::class.java).also {
+                it.putExtra("roomName","Kitchen")
+                startActivity(it)
+            }
+        }
+
+        blindsButton.setOnClickListener {
+            Intent(this, BlindsActivity::class.java).also {
+                it.putExtra("roomName","Kitchen")
                 startActivity(it)
             }
         }

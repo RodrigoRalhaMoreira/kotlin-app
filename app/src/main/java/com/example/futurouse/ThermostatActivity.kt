@@ -58,6 +58,17 @@ class ThermostatActivity : AppCompatActivity() {
         isOn = thermostatState.isOn
 
 
+        when (rotateMode % rotateTotalModes) {
+            0f -> {
+                textViewFanSpeed.text = "Slow"
+            }
+            1f -> {
+                textViewFanSpeed.text = "Normal"
+            }
+            2f -> {
+                textViewFanSpeed.text = "Fast"
+            }
+        }
 
         if(isOn){
             onOff.setImageResource(R.drawable.on_symbol)

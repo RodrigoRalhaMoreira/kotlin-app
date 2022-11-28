@@ -25,10 +25,6 @@ class ChangeLigthsActivity  : AppCompatActivity(){
     var lightsOn = false;
     var lightPercentage = 0;
     var lightColor = 0; //0-yellow,1-red,2-blue
-    var lightState : Lights? = null
-    var  lights: List<Lights>? = null
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +38,12 @@ class ChangeLigthsActivity  : AppCompatActivity(){
 
         if (extras != null) {
             roomName.text = extras.getString("roomName")
+            if(extras.getString("roomName").equals("Kitchen")){
+                lightsOn = true
+            }
         }
 
-        val jsonFileString = Utils.getJsonDataFromAsset(applicationContext, "LightsState.json")
+        /*val jsonFileString = Utils.getJsonDataFromAsset(applicationContext, "LightsState.json")
 
         val gson = Gson()
         val lightType = object : TypeToken<List<Lights>>() {}.type
@@ -55,6 +54,7 @@ class ChangeLigthsActivity  : AppCompatActivity(){
         lightsOn = lightState!!.lightsOn
 
         lightColor = lightState!!.lightColor
+        */
 
         var lightColorMenuOpen = false
 
@@ -69,6 +69,8 @@ class ChangeLigthsActivity  : AppCompatActivity(){
         val buttonStartCord: IntArray = intArrayOf(0,0)
 
         redBtn.getLocationOnScreen(buttonStartCord)
+
+        lightColor = 2
 
         when (lightColor) {
             2 -> {
@@ -99,9 +101,9 @@ class ChangeLigthsActivity  : AppCompatActivity(){
             darkening.alpha = 0.25f
         }
 
-        lightPercentage = lightState!!.lightPercentage
+        lightPercentage = 30
 
-        seekbar.progress = lightState!!.lightPercentage
+        seekbar.progress = 30
 
         seekbar.alpha = 0.4f + (lightPercentage/100f)
 
@@ -244,18 +246,5 @@ class ChangeLigthsActivity  : AppCompatActivity(){
         }
 
         imageView.setOnClickListener { this.finish() }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        val gson = Gson()
-        val gsonPretty = GsonBuilder().setPrettyPrinting().create()
-        var temp = lights?.get(0)
-        if (temp != null) {
-            temp.lightPercentage = lightPercentage
-            temp.lightColor = lightColor
-            temp.lightsOn = lightsOn
-        }
-
     }
 }

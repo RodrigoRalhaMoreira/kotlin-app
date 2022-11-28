@@ -3,6 +3,7 @@ package com.example.futurouse.oven
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -14,12 +15,16 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import kotlinx.android.synthetic.main.fragment_oven_programs.*
+import java.util.*
 
 
 class OvenPrograms : Fragment(R.layout.fragment_oven_programs) {
 
-    var settings = arrayListOf<MaterialCardView>()
-    var schedules = arrayListOf<ImageView>()
+    private var settings = arrayListOf<MaterialCardView>()
+    private var schedules = arrayListOf<ImageView>()
+
+    private var savedHours = arrayOfNulls<Int>(4)
+    private var savedMinutes = arrayOfNulls<Int>(4)
 
     var checkedSetting: MaterialCardView? = null
 
@@ -31,6 +36,7 @@ class OvenPrograms : Fragment(R.layout.fragment_oven_programs) {
 
         this.setCheckedListeners()
         this.setScheduleListeners()
+
     }
 
     private fun setCheckedListeners() {
@@ -47,13 +53,11 @@ class OvenPrograms : Fragment(R.layout.fragment_oven_programs) {
                 } ) as ImageView
 
                 var ovenTemp = ( ( setting.children.first() as ConstraintLayout ).children.find {
-                    (it is TextView) && (it.text.contains("º"))
+                    (it is TextView) && (it.text.contains("ยบ"))
                 } ) as TextView
-
 
                 activity?.findViewById<ImageView>(R.id.currentMode)?.setImageDrawable(ovenMode.drawable)
                 activity?.findViewById<TextView>(R.id.ovenTemp)?.text = ovenTemp.text
-
 
                 var bundle = Bundle()
                 bundle.putString("temp", ovenTemp.text as String)
@@ -69,18 +73,27 @@ class OvenPrograms : Fragment(R.layout.fragment_oven_programs) {
     }
 
     private fun setScheduleListeners() {
-        for (schedule in schedules) {
+
+        schedules.forEachIndexed { index, schedule ->
             schedule.setOnClickListener {
+                var hour = 12
+                var minute = 0
+                if (savedHours[index] != null)  hour = savedHours[index]!!
+                if (savedMinutes[index] != null)  minute = savedMinutes[index]!!
                 val picker =
                     MaterialTimePicker.Builder()
                         .setTimeFormat(TimeFormat.CLOCK_12H)
-                        .setHour(12)
-                        .setMinute(0)
+                        .setHour(hour)
+                        .setMinute(minute)
                         .setTitleText("Set starting time")
                         .build()
                 picker.show(childFragmentManager, "schedule")
+
+                picker.addOnPositiveButtonClickListener {
+                    savedHours[index] = picker.hour
+                    savedMinutes[index] = picker.minute
+                }
             }
         }
     }
 }
-

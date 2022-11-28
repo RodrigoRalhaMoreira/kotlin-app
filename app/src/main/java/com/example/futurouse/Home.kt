@@ -1,4 +1,5 @@
 package com.example.futurouse
+import android.content.Intent
 import android.graphics.Color
 import android.media.Image
 import android.os.Bundle
@@ -7,6 +8,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
+import com.example.futurouse.oven.OvenActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -15,6 +17,22 @@ class Home : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        kitchenOven.setOnClickListener {
+            var intent = Intent(activity,OvenActivity::class.java)
+            startActivity(intent)
+        }
+
+        kitchenLight.setOnClickListener {
+            var intent = Intent(activity,ChangeLigthsActivity::class.java)
+            startActivity(intent)
+        }
+
+        gardenIrrig.setOnClickListener {
+            var intent = Intent(activity,ChangeLigthsActivity::class.java)
+            startActivity(intent)
+        }
+
         wake_btn?.setCardBackgroundColor(Color.parseColor("#DCDCD0"))
         night_btn.setOnClickListener( View.OnClickListener() {
             setDefaultButtonsBackground()
@@ -86,5 +104,7 @@ class Home : Fragment(R.layout.fragment_home) {
         val question = (activity as AppCompatActivity).findViewById<ImageButton>(R.id.button)
         question.setImageResource(R.drawable.ic_baseline_question_mark_24)
     }
+
+
 
 }

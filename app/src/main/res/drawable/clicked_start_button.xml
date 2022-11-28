@@ -2,7 +2,27 @@
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item>
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:state_focused="true"
+            android:state_pressed="true" >
+            <solid android:color="#ffffff"></solid>
+
+        </item>
+
+        <item
+            android:state_focused="false"
+            android:state_pressed="true">
+            <solid android:color="#ffffff"></solid>
+
+        </item>
+
+        <item>
+            <solid android:color="#000000"></solid>
+        </item>
+    </selector>
+
+    <!--<item>
         <shape android:shape="rectangle">
             <gradient
                 android:startColor="#ffa240"
@@ -16,14 +36,12 @@
         android:bottom="3dp"
         android:left="3dp"
         android:right="3dp"
-        android:top="3dp"
-        android:state_focused="true"
-        android:state_pressed="true">
+        android:top="3dp">
         <shape android:shape="rectangle">
-            <solid android:color="#ffe5cb"/>
+            <solid android:color="#ffcc96"/>
             <corners android:radius="20dp"></corners>
         </shape>
-    </item>
+    </item>-->
 
 </layer-list>
 

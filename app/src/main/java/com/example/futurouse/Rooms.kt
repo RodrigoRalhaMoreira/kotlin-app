@@ -18,5 +18,11 @@ class Rooms: Fragment(R.layout.choose_room){
                 startActivity(it)
             }
         }
+
+        gardenButton.setOnClickListener {
+            Intent(activity, GardenActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
 }

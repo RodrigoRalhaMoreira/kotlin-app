@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.get
 import androidx.core.view.iterator
+import androidx.fragment.app.Fragment
 import com.example.futurouse.MainActivity
 import com.example.futurouse.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -26,13 +27,12 @@ class OvenActivity : AppCompatActivity()  {
 
     private lateinit var currentActiveTab: CardView
 
-    private var fragContainer = R.drawable.layout_border
-
     private var minutes: Int = -1
     private var hours: Int = -1
 
     private lateinit var timer: CountDownTimer
 
+    private var tempFrag: OvenTemperature? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,13 +50,13 @@ class OvenActivity : AppCompatActivity()  {
         val programsFragment = OvenPrograms()
 
         supportFragmentManager.beginTransaction().apply {
-            ovenFragContainer.setBackgroundResource(fragContainer)
+            ovenFragContainer.setBackgroundResource(R.drawable.layout_border)
             replace(R.id.ovenFragContainer, modeFragment)
             commit()
         }
 
         modeButton.setOnClickListener {
-            ovenFragContainer.setBackgroundResource(fragContainer)
+            ovenFragContainer.setBackgroundResource(R.drawable.layout_border)
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.ovenFragContainer, modeFragment)
                 commit()
@@ -64,17 +64,20 @@ class OvenActivity : AppCompatActivity()  {
             setActiveTab(modeButton)
         }
 
+
         tempButton.setOnClickListener {
-            ovenFragContainer.setBackgroundResource(fragContainer)
+            ovenFragContainer.setBackgroundResource(R.drawable.layout_border)
             supportFragmentManager.beginTransaction().apply {
-                replace(R.id.ovenFragContainer, tempFragment)
+                var newFrag = tempFragment
+                if (tempFrag != null ) newFrag = tempFrag as OvenTemperature
+                replace(R.id.ovenFragContainer, newFrag)
                 commit()
             }
             setActiveTab(tempButton)
         }
 
         timerButton.setOnClickListener {
-            ovenFragContainer.setBackgroundResource(fragContainer)
+            ovenFragContainer.setBackgroundResource(R.drawable.layout_border)
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.ovenFragContainer, timerFragment)
                 commit()
@@ -94,10 +97,13 @@ class OvenActivity : AppCompatActivity()  {
         flames.scale = 10f
 
         onOffButton.setOnClickListener {
+
+
             if (onOffButton.text.contains("ON")) {
                 onOffButton.text = "TURN OFF"
 
                 startTimer()
+
             }
             else {
                 onOffButton.text = "TURN ON"
@@ -108,6 +114,8 @@ class OvenActivity : AppCompatActivity()  {
                 countdown.visibility = View.INVISIBLE
 
                 flames.visibility = View.INVISIBLE
+
+                ovenFragContainer.visibility = View.VISIBLE
             }
         }
 
@@ -163,10 +171,12 @@ class OvenActivity : AppCompatActivity()  {
 
         var duration = hoursInMilli + minutesInMilli
 
-        countdown.visibility = View.VISIBLE
-        timerIcon.visibility = View.INVISIBLE
+        if (duration > 0) {
+            countdown.visibility = View.VISIBLE
+            ovenFragContainer.visibility = View.INVISIBLE
+        }
 
-        fadeInFlames()
+        fadeInOnStart()
 
         timer = object: CountDownTimer(duration, 1000) {
 
@@ -175,23 +185,33 @@ class OvenActivity : AppCompatActivity()  {
                 var minutes = ( TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) % 60 ).absoluteValue
                 var seconds = ( TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) % 60 ).absoluteValue
 
-                if (hours > 0) countdown.text = "$hours : $minutes : $seconds"
-                else countdown.text = "$minutes : $seconds"
+                var presentedHours = "$hours"
+                var presentedMinutes = "$minutes"
+                var presentedSeconds = "$seconds"
+
+                if (hours < 10) presentedHours = "0$hours"
+                if (minutes < 10) presentedMinutes = "0$minutes"
+                if (seconds < 10) presentedSeconds = "0$seconds"
+
+                if (hours > 0) countdown.text = "$presentedHours : $presentedMinutes : $presentedSeconds"
+                else countdown.text = "$presentedMinutes : $presentedSeconds"
 
             }
 
             override fun onFinish() {
-                timerIcon.visibility = View.VISIBLE
-                countdown.visibility = View.INVISIBLE
+                if (duration > 0) {
+                    ovenFragContainer.visibility = View.VISIBLE
+                    countdown.visibility = View.INVISIBLE
 
-                flames.visibility = View.INVISIBLE
-                onOffButton.text = "TURN ON"
+                    flames.visibility = View.INVISIBLE
+                    onOffButton.text = "TURN ON"
+                }
             }
 
         }.start()
     }
 
-    private fun fadeInFlames() {
+    private fun fadeInOnStart() {
         val fadeIn = AlphaAnimation(0f, 1f)
         fadeIn.duration = 1000
 
@@ -199,8 +219,14 @@ class OvenActivity : AppCompatActivity()  {
         animation.addAnimation(fadeIn)
 
         flames.animation = animation
+        countdown.animation = animation
 
         flames.visibility = View.VISIBLE
+
+    }
+
+    fun setNewTempFrag(frag: OvenTemperature) {
+        tempFrag = frag
     }
 
 

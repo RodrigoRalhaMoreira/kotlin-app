@@ -141,7 +141,7 @@
                     android:layout_marginVertical="80dp"
                     android:layout_marginLeft="-70dp"
                     android:layout_marginTop="50dp"
-                    android:text="2 lights"
+                    android:text="1 light"
                     android:textColor="#000000"
                     android:textAlignment="center"
                     android:textSize="15sp" />

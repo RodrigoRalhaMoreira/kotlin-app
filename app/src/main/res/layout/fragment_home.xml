@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Hello, Rodas"
         android:textSize="30sp"
+        android:textColor="#000000"
         android:layout_marginEnd="128dp"
         android:paddingBottom="8dp"
         android:paddingTop="6dp"
@@ -25,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Current House Status"
-        
+        android:textColor="#000000"
         android:textSize="20sp"
         android:layout_marginEnd="128dp"
         android:paddingBottom="8dp"
@@ -81,12 +82,16 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/card_text_temp"
+                            android:layout_width="54dp"
                             android:layout_height="30dp"
-                            android:layout_marginTop="10dp"
-                            android:src="@drawable/moon" />
+                            android:layout_marginTop="14dp"
+                            android:text="19ºC"
+                            android:textColor="#000000"
+                            android:textAlignment="center"
+                            android:textSize="15sp" />
+
                     </LinearLayout>
 
 
@@ -100,6 +105,7 @@
                     android:layout_marginLeft="-70dp"
                     android:layout_marginTop="50dp"
                     android:text="Temp."
+                    android:textColor="#000000"
                     android:textAlignment="center"
                     android:textSize="15sp" />
 
@@ -120,9 +126,9 @@
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_marginTop="10dp"
-                            android:src="@drawable/moon" />
+                            android:layout_height="40dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@drawable/light_bulb" />
                     </LinearLayout>
 
 
@@ -136,6 +142,7 @@
                     android:layout_marginLeft="-70dp"
                     android:layout_marginTop="50dp"
                     android:text="2 lights"
+                    android:textColor="#000000"
                     android:textAlignment="center"
                     android:textSize="15sp" />
 
@@ -151,13 +158,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:orientation="horizontal">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        android:orientation="horizontal"
+                        >
+                        <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="30dp"
                             android:layout_marginTop="10dp"
-                            android:src="@drawable/moon" />
+                            android:src="@drawable/oven"/>
                     </LinearLayout>
 
 
@@ -170,7 +177,8 @@
                     android:layout_marginVertical="80dp"
                     android:layout_marginLeft="-70dp"
                     android:layout_marginTop="50dp"
-                    android:text="Irrig. on"
+                    android:text="Oven on"
+                    android:textColor="#000000"
                     android:textSize="15sp" />
             </LinearLayout>
 
@@ -184,7 +192,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="128dp"
         android:text="Profiles  +"
-        
+        android:textColor="#000000"
         android:textSize="20sp"
         android:paddingBottom="8dp"
         android:paddingTop="14dp"
@@ -391,7 +399,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="128dp"
         android:text="Favourite Acessories"
-        
+        android:textColor="#000000"
         android:textSize="20sp"
         android:paddingBottom="8dp"
         android:paddingEnd="24dp"

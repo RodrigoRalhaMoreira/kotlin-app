@@ -35,14 +35,14 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_marginTop="10dp"
-                        android:src="@drawable/ic_launcher_background" />
+                        android:src="@drawable/light_bulb" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Bedroom"
-                        android:textSize="20sp" />
+                        android:text="Bedroom Light"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -51,7 +51,42 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="10dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="20dp"
+                        android:src="@drawable/oven" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Kitchen Oven"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp"
                 app:cardBackgroundColor="#FFFFFF">
@@ -65,14 +100,14 @@
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"                        android:layout_marginTop="10dp"
-                        android:src="@drawable/ic_launcher_foreground" />
+                        android:src="@drawable/light_bulb" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Kitchen"
-                        android:textSize="20sp" />
+                        android:text="Office Light"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -81,37 +116,9 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:layout_margin="20dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="10dp"
-                app:cardBackgroundColor="#FFFFFF">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
-
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"                        android:layout_marginTop="10dp"
-                        android:src="@drawable/ic_launcher_background" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Living Room"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp">
 
@@ -121,17 +128,17 @@
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
+                    <ImageView
                         android:layout_width="80dp"
                         android:layout_height="80dp"                        android:layout_marginTop="10dp"
-                        android:src="@drawable/ic_launcher_background" />
+                        android:src="@drawable/watering_can"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="Garden"
-                        android:textSize="20sp" />
+                        android:text="Garden Irrig"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 

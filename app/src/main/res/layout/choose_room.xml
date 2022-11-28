@@ -20,7 +20,7 @@
             android:gravity="center"
             android:layout_marginTop="-15dp"
             android:text="ROOMS"
-            android:textColor="#58595A"
+            android:textColor="#000000"
             android:textSize="35sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/container"
@@ -59,7 +59,7 @@
                 android:layout_marginTop="-5dp"
                 android:fontFamily="sans-serif"
                 android:text="Kitchen"
-                android:textColor="#58595A"
+                android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:translationZ="90dp"></TextView>
@@ -72,8 +72,8 @@
                 android:layout_marginStart="22dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="sans-serif"
-                android:text="3 devices"
-                android:textColor="#58595A"
+                android:text="4 devices"
+                android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic"
                 android:translationZ="90dp"></TextView>
@@ -115,7 +115,7 @@
                 android:layout_marginTop="-5dp"
                 android:fontFamily="sans-serif"
                 android:text="Bedroom"
-                android:textColor="#58595A"
+                android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:translationZ="90dp"></TextView>
@@ -129,7 +129,7 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="sans-serif"
                 android:text="5 devices"
-                android:textColor="#58595A"
+                android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic"
                 android:translationZ="90dp"></TextView>
@@ -171,7 +171,7 @@
                 android:layout_marginTop="-5dp"
                 android:fontFamily="sans-serif"
                 android:text="Office"
-                android:textColor="#58595A"
+                android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:translationZ="90dp"></TextView>
@@ -185,7 +185,7 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="sans-serif"
                 android:text="2 devices"
-                android:textColor="#58595A"
+                android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic"
                 android:translationZ="90dp"></TextView>
@@ -229,7 +229,7 @@
                 android:layout_marginTop="-5dp"
                 android:fontFamily="sans-serif"
                 android:text="Garden"
-                android:textColor="#58595A"
+                android:textColor="#000000"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:translationZ="90dp"></TextView>
@@ -243,7 +243,7 @@
                 android:layout_marginTop="15dp"
                 android:fontFamily="sans-serif"
                 android:text="1 devices"
-                android:textColor="#58595A"
+                android:textColor="#000000"
                 android:textSize="15sp"
                 android:textStyle="italic"
                 android:translationZ="90dp"></TextView>

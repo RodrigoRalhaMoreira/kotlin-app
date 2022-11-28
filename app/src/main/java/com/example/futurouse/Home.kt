@@ -31,7 +31,7 @@ class Home : Fragment(R.layout.fragment_home) {
         party_btn.setOnClickListener( View.OnClickListener() {
             setDefaultButtonsBackground()
             setSelectedViewCardBackground(party_btn)
-            activity?.drawerLayout?.setBackgroundResource(R.drawable.party_background)
+            activity?.drawerLayout?.setBackgroundResource(R.drawable.party_bg)
             setDarkMode(view)
         })
         relax_btn.setOnClickListener( View.OnClickListener() {

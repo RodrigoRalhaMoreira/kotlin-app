@@ -49,7 +49,7 @@
             <TextView
                 android:id="@+id/textView4"
                 android:layout_marginTop="8dp"
-                android:textColor="#58595A"
+                android:textColor="#000000"
                 android:textSize="35sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                 ></TextView>
             <TextView
                 android:id="@+id/textView10"
-                android:textColor="#58595A"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Current Temperature:"
-            android:textColor="#58595A"
+            android:textColor="#000000"
             android:fontFamily="sans-serif"
             android:textSize="30sp"
             android:gravity="center"></TextView>
@@ -99,7 +99,7 @@
             android:fontFamily="sans-serif"
             android:gravity="center"
             android:text="10 ºC"
-            android:textColor="#58595A"
+            android:textColor="#000000"
             android:textSize="60sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +143,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:gravity="center"
             android:textSize="50dp"
-            android:textColor="#58595A"
+            android:textColor="#000000"
             ></TextView>
         <TextView
             android:layout_marginTop="240dp"
@@ -155,7 +155,7 @@
             android:text="Adjust"
             android:gravity="center"
             android:textSize="40sp"
-            android:textColor="#58595A"
+            android:textColor="#000000"
         ></TextView>
 
         <me.tankery.lib.circularseekbar.CircularSeekBar

@@ -1,8 +1,8 @@
 package com.example.futurouse.oven
 
-import android.media.Image
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -14,7 +14,7 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import kotlinx.android.synthetic.main.fragment_oven_programs.*
-import org.w3c.dom.Text
+
 
 class OvenPrograms : Fragment(R.layout.fragment_oven_programs) {
 
@@ -53,6 +53,15 @@ class OvenPrograms : Fragment(R.layout.fragment_oven_programs) {
 
                 activity?.findViewById<ImageView>(R.id.currentMode)?.setImageDrawable(ovenMode.drawable)
                 activity?.findViewById<TextView>(R.id.ovenTemp)?.text = ovenTemp.text
+
+
+                var bundle = Bundle()
+                bundle.putString("temp", ovenTemp.text as String)
+
+                val tempFragment = OvenTemperature()
+                tempFragment.arguments = bundle
+
+                (activity as OvenActivity).setNewTempFrag(tempFragment)
 
                 true
             }

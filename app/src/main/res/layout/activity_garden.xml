@@ -29,7 +29,7 @@
                 android:focusable="true"
                 android:maxWidth="45dp"
                 android:maxHeight="45dp"
-                android:src="@drawable/back_arrow_gray">
+                android:src="@drawable/back_arrow_black">
 
             </ImageView>
 

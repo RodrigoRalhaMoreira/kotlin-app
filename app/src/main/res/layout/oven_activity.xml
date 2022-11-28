@@ -41,7 +41,7 @@
                     android:scaleType="fitCenter"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/back_arrow_gray" />
+                    app:srcCompat="@drawable/back_arrow_black" />
 
                 <TextView
                     android:id="@+id/textView12"

@@ -28,7 +28,7 @@
                 android:focusable="true"
                 android:maxWidth="45dp"
                 android:maxHeight="45dp"
-                android:src="@drawable/back_arrow_gray">
+                android:src="@drawable/back_arrow_black">
 
             </ImageView>
 
@@ -61,6 +61,7 @@
                 android:paddingEnd="24dp"
                 android:paddingBottom="8dp"
                 android:text="Current Status"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <HorizontalScrollView
@@ -86,11 +87,15 @@
                             android:gravity="center_horizontal"
                             android:orientation="horizontal">
 
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:layout_width="match_parent"
+                            <TextView
+                                android:id="@+id/card_text_temp"
+                                android:layout_width="54dp"
                                 android:layout_height="30dp"
-                                android:layout_marginTop="10dp"
-                                android:src="@drawable/moon" />
+                                android:layout_marginTop="14dp"
+                                android:text="19ºC"
+                                android:textColor="#000000"
+                                android:textAlignment="center"
+                                android:textSize="15sp" />
                         </LinearLayout>
 
 
@@ -103,11 +108,13 @@
                         android:layout_marginLeft="-70dp"
                         android:layout_marginTop="50dp"
                         android:text="Temp."
+                        android:textColor="@color/black"
                         android:textAlignment="center"
                         android:textSize="15sp" />
 
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/kitchenLightStatus"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="20dp"
@@ -123,21 +130,23 @@
 
                             <de.hdodenhof.circleimageview.CircleImageView
                                 android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:layout_marginTop="10dp"
-                                android:src="@drawable/moon" />
+                                android:layout_height="40dp"
+                                android:layout_marginTop="4dp"
+                                android:src="@drawable/light_bulb" />
                         </LinearLayout>
 
 
                     </androidx.cardview.widget.CardView>
 
                     <TextView
+                        android:id="@+id/kitchenLightStatusText"
                         android:layout_width="54dp"
                         android:layout_height="30dp"
                         android:layout_marginVertical="80dp"
                         android:layout_marginLeft="-70dp"
                         android:layout_marginTop="50dp"
-                        android:text="2 lights"
+                        android:text="light on"
+                        android:textColor="@color/black"
                         android:textAlignment="center"
                         android:textSize="15sp" />
 
@@ -162,6 +171,7 @@
                 android:paddingEnd="24dp"
                 android:paddingBottom="8dp"
                 android:text="Profiles"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <HorizontalScrollView
@@ -332,6 +342,7 @@
 
         </LinearLayout>
 
+        <!--
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -344,6 +355,7 @@
                 android:layout_marginEnd="128dp"
                 android:text="Acessories"
                 android:textSize="18sp"
+                android:textColor="@color/black"
                 android:paddingBottom="8dp"
                 android:paddingTop="8dp"
                 android:paddingEnd="24dp"
@@ -414,7 +426,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="25dp"
-                            android:text="Lights" />
+                            android:text="Light" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -490,6 +502,176 @@
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
+
+
+        </LinearLayout>
+        -->
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".Horizontal_ScrollView">
+
+            <TextView
+                android:id="@+id/textAccessoriesView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="128dp"
+                android:text="Acessories"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="24dp"
+                android:paddingStart="24dp"
+                />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/ovenButton"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_margin="20dp"
+                        app:cardBackgroundColor="#FFFFFF"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="70dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/oven" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Oven"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/lightButton"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginRight="20dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="10dp"
+                        app:cardBackgroundColor="#FFFFFF">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"                        android:layout_marginTop="10dp"
+                                android:src="@drawable/light_bulb" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Light"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/blinds"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginRight="20dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="10dp"
+                        app:cardBackgroundColor="#FFFFFF">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"                        android:layout_marginTop="10dp"
+                                android:src="@drawable/blinds" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Office Light"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/thermostatButton"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_marginRight="20dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="70dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/thermometer"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="Thermostate"
+                                android:textSize="18sp" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
 
 
         </LinearLayout>

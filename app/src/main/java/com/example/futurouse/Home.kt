@@ -31,7 +31,7 @@ class Home : Fragment(R.layout.fragment_home) {
         party_btn.setOnClickListener( View.OnClickListener() {
             setDefaultButtonsBackground()
             setSelectedViewCardBackground(party_btn)
-            activity?.drawerLayout?.setBackgroundResource(R.drawable.party_bg)
+            activity?.drawerLayout?.setBackgroundResource(R.drawable.party_final_bg)
             setDarkMode(view)
         })
         relax_btn.setOnClickListener( View.OnClickListener() {
@@ -67,6 +67,7 @@ class Home : Fragment(R.layout.fragment_home) {
         (activity as AppCompatActivity).supportActionBar?.setHomeButtonEnabled(true)
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as AppCompatActivity).supportActionBar?.setHomeAsUpIndicator(R.drawable.menu_hamburguer_white)
+
         val question = (activity as AppCompatActivity).findViewById<ImageButton>(R.id.button)
         question.setImageResource(R.drawable.ic_baseline_question_mark_24_white)
     }
